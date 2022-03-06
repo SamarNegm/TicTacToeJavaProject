@@ -55,7 +55,12 @@ public class Player {
     public void setScore(int score) {
         this.score = score;
     }
-
+  public Player(String username, String passwd, String status,int score) {
+        this.username = username;
+        this.password = passwd;
+        this.status = status;
+        this.score=score;
+    }
     public Player(int id, String username, String password, String status, int score) {
         this.id = id;
         this.username = username;

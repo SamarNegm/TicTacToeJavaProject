@@ -7,6 +7,8 @@ package Controllers;
 
 import mytictactoe.*;
 import DataBase.DataBase;
+import Handlers.ClientHandler;
+import Models.Player;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +23,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -33,14 +36,28 @@ public class SignupController implements Initializable {
     PasswordField password,confirm;
     @FXML
     Label error;
-    DataBase db=new DataBase();
+    Thread readerThread;
+    Player player = null;
     public void SignUp(ActionEvent event)
     {
          
-         if(password.getText().equals(confirm.getText()))
-         db.checkUserData(uname.getText(), password.getText());
+         if(password.getText().equals(confirm.getText())&&!password.getText().isEmpty()&&!uname.getText().isEmpty())
+     
+         {
+               player = new Player();
+            ClientHandler.setSignUpCtrl(this);
+            ClientHandler.setPlayer(player);
+
+            //Generate a new SignUp request to the server.
+            JSONObject loginReq = new JSONObject();
+            loginReq.put("type", "signup");
+            loginReq.put("username", uname.getText());
+            loginReq.put("password", password.getText());
+            ClientHandler.sendRequest(loginReq);
+            readerThread = new Thread(new ClientHandler.recieveRespone());
+         }
          else
-             error.setText("Password No Match");
+             error.setText("Password or User Name Not Valid");
     }
       public void SignIn(ActionEvent event)
     {
@@ -64,5 +81,9 @@ public void navigateTo(String screen)
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    public Label getErrorLable() {
+       return error;
+    }
     
 }

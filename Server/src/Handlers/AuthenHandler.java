@@ -73,9 +73,9 @@ public class AuthenHandler extends Thread {
             try {
                 //handle user requests
                 userRequestHandler(inputStream.readUTF());
-                
+
                 //send response to the user  
-                outputStream.writeUTF(jsonObj.toString());
+                //outputStream.writeUTF(jsonObj.toString());
             } catch (IOException ex) {
 
                 close();
@@ -135,12 +135,9 @@ public class AuthenHandler extends Thread {
                     //add the json response construction
                     responseJsonObj = JSONHandeling.constructJSONResponse(responseJsonObj, Requests.SIGN_IN);
 
-                    System.out.println("back with respone.. " + responseJsonObj.toJSONString());
-                    //send response to the user   
-                    System.out.println("Soket: "+socket.getLocalPort());
                     outputStream.writeUTF(responseJsonObj.toString());
-                    outputStream.writeChars("hiiii");
-                    System.out.println("sent"+responseJsonObj.toString());
+
+                    System.out.println("sent" + responseJsonObj.toString());
                     return true;
                 }
             }
@@ -151,33 +148,64 @@ public class AuthenHandler extends Thread {
             Logger.getLogger(AuthenHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("not ok||");
-        responseJsonObj = JSONHandeling.errorToJSON("error", errorMsg);
+        
+      //  send error massage to client 
+        try {
+              responseJsonObj = JSONHandeling.errorToJSON(Requests.SIGN_IN, "fail");
+            outputStream.writeUTF(responseJsonObj.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(AuthenHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
 
-    public void checkUserData(String uname, String password) {
-
-        if (exist(uname)) {
-            System.out.println("UserName is exist");
-        } else {
-            signUp(uname, password);
-        }
-
-    }
 
     public void signUp(String uname, String password) {
+        System.out.println("Sinnig up");
+        JSONObject responseJsonObj = new JSONObject();
         try {
-            String queryIsert = " insert into playerdata (  Name, Password, Score, Status)"
-                    + " values (?, ?, ?,?)";
-            preparedStmt = con.prepareStatement(queryIsert);
-            preparedStmt.setString(1, uname);
-            preparedStmt.setString(2, password);
-            preparedStmt.setInt(3, 0);
-            preparedStmt.setString(4, "Online");
-            System.out.println("iserted....");
-            preparedStmt.execute();
+            System.out.println("Sinnig up1");
+            String query = "Select * from playerdata where Name = ?";
+            System.out.println("Sinnig up2");
+            PreparedStatement pstmt = con.prepareStatement(query);
+            System.out.println("Sinnig up3");
+            pstmt.setString(1, uname);
+            System.out.println("Sinnig up4");
+            ResultSet rs = pstmt.executeQuery();
+            System.out.println("Sinnig up5");
+            if (rs.next()) {
+                System.out.println("User Already exust");
+                errorMsg = "fail";
+                responseJsonObj = JSONHandeling.errorToJSON(Requests.SIGN_UP, errorMsg);
+                outputStream.writeUTF(responseJsonObj.toString());
+            } else {
+                System.out.println("Sinnig up6");
+                String queryIsert = " insert into playerdata (  Name, Password, Score, Status)"
+                        + " values (?, ?, ?,?)";
+                preparedStmt = con.prepareStatement(queryIsert);
+                preparedStmt.setString(1, uname);
+                preparedStmt.setString(2, password);
+                preparedStmt.setInt(3, 0);
+                preparedStmt.setString(4, "Online");
+                System.out.println("iserted....");
+                preparedStmt.execute();
+                Player currPlayer = new Player(uname, password, "Online", 0);
+
+                ///send to client acceptance  
+                responseJsonObj = JSONHandeling.playerToJSON(currPlayer);
+
+                //add the json response construction
+                responseJsonObj = JSONHandeling.constructJSONResponse(responseJsonObj, Requests.SIGN_UP);
+
+                outputStream.writeUTF(responseJsonObj.toString());
+
+                System.out.println("sent" + responseJsonObj.toString());
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(DataBase.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AuthenHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

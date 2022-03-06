@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import Controllers.LoginController;
+import Controllers.SignupController;
 import mytictactoe.MyTicTacToe;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -36,6 +37,15 @@ public class ClientHandler {
     private static String currentScene;
     private static DataOutputStream ps;
     private static LoginController loginctrl;
+     private static SignupController signUpCtrl;
+
+    public static SignupController getSignUpCtrl() {
+        return signUpCtrl;
+    }
+
+    public static void setSignUpCtrl(SignupController signUpCtrl) {
+        ClientHandler.signUpCtrl = signUpCtrl;
+    }
     private ClientHandler(){  
     }
     
@@ -133,7 +143,7 @@ public class ClientHandler {
         boolean running = true;
         String response;
         public recieveRespone ()  {
-            System.out.println("runninggggg");
+          
             this.start();
         }
         @Override
@@ -185,6 +195,7 @@ public class ClientHandler {
             }
         });
     }
+    
     private static void Login(JSONObject response)
     {
         System.out.println("yaaaaaa login..."+response.toString());
@@ -198,6 +209,7 @@ public class ClientHandler {
         }
         else{
             String error = response.get("errorMsg").toString();
+             System.out.println(error.toString()+"............");
             String warning;
             
             if ( request.equals("signin") && error.equals("signedin"))
@@ -208,7 +220,15 @@ public class ClientHandler {
                 warning="Username already exists.";
             else
                 warning="unexpected";
-            Platform.runLater(() -> {loginctrl.getErrorLable().setText(warning);});
+            Platform.runLater(() -> {
+            
+                System.out.println(warning);
+                if (request.equals("signin"))
+                loginctrl.getErrorLable().setText(warning);
+                else
+                 signUpCtrl.getErrorLable().setText(warning);
+            
+            });
         }
     }
     public static void setLoginCtrl(LoginController ctrl) {
