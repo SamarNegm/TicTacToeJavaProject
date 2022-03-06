@@ -43,7 +43,7 @@ public class Server {
             while (isStayAlive){
                 try {
                     clientSocket = serverSocket.accept();
-                     System.out.println("    New client tryig to connect..");
+                     System.out.println("  ....  New client tryig to connect.." +clientSocket.getLocalPort());
                     //New client is accepted
                //     ServerUtils.appendLog("[ClientAcceptListener class]: Client has been accepted. ");
                     
@@ -69,7 +69,7 @@ public class Server {
         System.out.println("server stared");
         try {
             //Create the server socket
-            System.out.println("    New client tryig to connect");
+            
             serverSocket = new ServerSocket(5055);
             clientAcceptListener = new ClientAcceptListener();
         } catch (IOException ex) {

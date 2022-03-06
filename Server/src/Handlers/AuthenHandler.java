@@ -137,9 +137,10 @@ public class AuthenHandler extends Thread {
 
                     System.out.println("back with respone.. " + responseJsonObj.toJSONString());
                     //send response to the user   
-                    System.out.println("Soket: "+socket.getPort());
+                    System.out.println("Soket: "+socket.getLocalPort());
                     outputStream.writeUTF(responseJsonObj.toString());
-                    System.out.println("sent");
+                    outputStream.writeChars("hiiii");
+                    System.out.println("sent"+responseJsonObj.toString());
                     return true;
                 }
             }

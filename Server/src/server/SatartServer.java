@@ -21,7 +21,7 @@ public class SatartServer extends Application {
     public void start(Stage stage) throws Exception {
 
      //  LoginBase root = new LoginBase(stage) ;
-     new Server().start();
+        new Server().start();
        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
      
         Scene scene = new Scene(root);
