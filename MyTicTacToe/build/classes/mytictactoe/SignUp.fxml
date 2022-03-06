@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import com.jfoenix.controls.JFXButton?>
-<AnchorPane fx:id="AnchorPane" prefHeight="519.0" prefWidth="397.0" style="-fx-background-color: ffff;"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytictactoe.SignupController">
+<AnchorPane fx:id="AnchorPane" prefHeight="519.0" prefWidth="397.0" style="-fx-background-color: ffff;"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignupController">
 
    <children>
       <AnchorPane layoutX="37.0" layoutY="97.0" prefHeight="400" prefWidth="323.0" style="-fx-background-color: #1db2ca; -fx-background-radius: 30;">

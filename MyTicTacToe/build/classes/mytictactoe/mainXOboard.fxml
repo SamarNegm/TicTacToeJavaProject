@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 <?import com.jfoenix.controls.*?>
-<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="746.0" style="-fx-background-color: ffff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytictactoe.MainXOboardController">
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="746.0" style="-fx-background-color: ffff;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainXOboardController">
     <stylesheets>
         <URL value="@mainxoboard.css" />
     </stylesheets>

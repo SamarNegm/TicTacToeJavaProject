@@ -6,28 +6,67 @@
 package mytictactoe;
 
 import DataBase.DataBase;
+import Handlers.ClientHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.json.simple.JSONObject;
 
 /**
  *
  * @author MrMr
  */
 public class MyTicTacToe extends Application {
-    
+
+    boolean connected = false;
+    Parent root;
+    Thread readerThread;
+    @Override
+    public void init()
+    {
+        connected = ClientHandler.connectToServer();
+    }
     @Override
     public void start(Stage stage) throws Exception {
 
-     //  LoginBase root = new LoginBase(stage) ;
-       Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-     
+
+        if(connected)
+        {
+             root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            readerThread = new Thread(new ClientHandler.recieveRespone());
+           
+        }
+        else
+        {
+            root = FXMLLoader.load(getClass().getResource("NoConnection.fxml"));
+        }
+
         Scene scene = new Scene(root);
-        
+        ClientHandler.setWindow(stage);
+        stage.resizableProperty().setValue(false);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    @Override
+    public void stop(){
+        
+        if(connected){
+            JSONObject msg = new JSONObject();
+            if(ClientHandler.getCurrentScene().equals("Multigame")){
+                msg.put("type","gameQuit");
+                msg.put("errorMsg", "clientDropped");
+                ClientHandler.sendRequest(msg);
+            }
+            msg = new JSONObject();
+            msg.put("type","signout");
+            ClientHandler.sendRequest(msg);
+            
+            ClientHandler.closeCon();
+            readerThread.stop();
+        }
     }
 
     /**
@@ -36,5 +75,5 @@ public class MyTicTacToe extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

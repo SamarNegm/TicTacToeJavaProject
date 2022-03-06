@@ -16,6 +16,10 @@ public class Player {
     private String status;
     private int score;
 
+    public Player() {
+
+    }
+    public void Player(){}
     public int getId() {
         return id;
     }
