@@ -19,8 +19,12 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import Controllers.LoginController;
 import Controllers.SignupController;
-import mytictactoe.MyTicTacToe;
 import mytictactoe.mainBoardWithComputerBase;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import mytictactoe.MyTicTacToe;
+
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -185,9 +189,9 @@ public class ClientHandler {
     public static void navigateTo(String screen) {
         setCurrentScene(screen);
         Platform.runLater(() -> {
-            //    Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(screen));
+            //     Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(screen));
             
-            mainBoardWithComputerBase root =new mainBoardWithComputerBase(2);
+            mainBoardWithComputerBase root =new mainBoardWithComputerBase(2,window);
             Scene scene = new Scene(root);
             window.setScene(scene);
             window.setResizable(false);

@@ -7,15 +7,23 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import com.jfoenix.controls.*;
+import static java.awt.SystemColor.window;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class mainBoardWithComputerBase extends AnchorPane {
 
+    private static Stage window;
     protected final ImageView borderView;
     protected final ImageView playerImage1;
     protected final Text text;
@@ -42,256 +50,248 @@ public class mainBoardWithComputerBase extends AnchorPane {
     protected final ImageView xInTitle;
     protected final ImageView oInTitle;
     protected final ImageView robotImage;
-    protected final JFXButton saveState;
-    Random rand =new Random();
+    protected final JFXButton playAgain;
+    Random rand = new Random();
     int state;
-    boolean wins=false;
-    String[] arr=new String[9];
-    int[][] myNumbers = { {0, 1, 2}, {3, 4, 5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6} };
+    boolean wins = false;
+    String[] arr = new String[9];
+    int[][] myNumbers = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
     private boolean playerTurn = true;
-    int turnCounter=0;
-    int hardTurn=-1;
+    int turnCounter = 0;
+    int hardTurn = -1;
     ArrayList<Button> buttons;
     ArrayList<ImageView> imageView;
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
-        
+
     }
+
     private void setupButton(Button button, int index) {
         button.setOnMouseClicked(mouseEvent -> {
-            if("".equals(arr[index])){
-            System.out.println("we are in button "+index);
-            setPlayerSymbol(button,index);
-            //button.setDisable(true);
-            checkIfGameIsOver();
+            if ("".equals(arr[index])) {
+                System.out.println("we are in button " + index);
+                setPlayerSymbol(button, index);
+                //button.setDisable(true);
+                checkIfGameIsOver();
             }
         });
     }
+
     private void checkIfGameIsOver() {
-        
+
         for (int a = 0; a <= 7; a++) {
             //X winner
             if ("X".equals(arr[myNumbers[a][0]]) && "X".equals(arr[myNumbers[a][2]]) && "X".equals(arr[myNumbers[a][1]])) {
                 text.setText("winner");
                 text0.setText("is");
                 text1.setText("Samar");
-                wins=true;
-                buttons.forEach(button ->{
-                    
-                    button.setDisable(true);
-                  });
-            }
+                wins = true;
+                buttons.forEach(button -> {
 
-            //O winner
+                    button.setDisable(true);
+                });
+            } //O winner
             else if ("O".equals(arr[myNumbers[a][0]]) && "O".equals(arr[myNumbers[a][2]]) && "O".equals(arr[myNumbers[a][1]])) {
                 text.setText("winner");
                 text0.setText("is");
                 text1.setText("Ommar");
-                wins=true;
-                buttons.forEach(button ->{
-                    
+                wins = true;
+                buttons.forEach(button -> {
+
                     button.setDisable(true);
-                  });
-            }
-            
-            else if(turnCounter > 9){
+                });
+            } else if (turnCounter > 9) {
                 text.setText("game");
                 text0.setText("is");
                 text1.setText("draw");
-                wins=true;
-                buttons.forEach(button ->{
-                    
+                wins = true;
+                buttons.forEach(button -> {
+
                     button.setDisable(true);
-                  });
-                    }
-            System.out.println("mytictactoe.mainBoardWithComputerBase.checkIfGameIsOver() "+turnCounter);
+                });
+            }
+            System.out.println("mytictactoe.mainBoardWithComputerBase.checkIfGameIsOver() " + turnCounter);
         }
-    
+
     }
-    
-    public void setPlayerSymbol(Button button,int index){
-        if(playerTurn ){
-            arr[index]="X";
+
+    public void setPlayerSymbol(Button button, int index) {
+        if (playerTurn) {
+            arr[index] = "X";
             imageView.get(index).setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
             playerTurn = false;
             turnCounter++;
-            
+
             checkIfGameIsOver();
-            if( wins !=true){
-                    computerTurn("O");
-                    turnCounter++;
-                    
+            if (wins != true) {
+                computerTurn("O");
+                turnCounter++;
+
             }
             checkIfGameIsOver();
-            
-            
-            
-        } 
-        else{
-            arr[index]="O";
+
+        } else {
+            arr[index] = "O";
             imageView.get(index).setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
             playerTurn = true;
             turnCounter++;
-            
+
             checkIfGameIsOver();
-            System.out.println("mytictactoe.mainBoardWithComputerBase.setPlayerSymbol()"+wins);
-            if( wins !=true){
-                    computerTurn("X");
-                    turnCounter++;
+            System.out.println("mytictactoe.mainBoardWithComputerBase.setPlayerSymbol()" + wins);
+            if (wins != true) {
+                computerTurn("X");
+                turnCounter++;
             }
             checkIfGameIsOver();
-            
+
         }
-        
+
     }
-    private void computerTurn(String turn){
-        
-        
-        buttons.forEach(button ->{
-                //setupButton(button,buttons.indexOf(button));
-                button.setDisable(true);
-            
+
+    private void computerTurn(String turn) {
+
+        buttons.forEach(button -> {
+            //setupButton(button,buttons.indexOf(button));
+            button.setDisable(true);
+
         });
         //if it is easy game it use random
-        if (state==1){
+        if (state == 1) {
             try {
-                        Thread.sleep(300);
-                } catch (InterruptedException ex) {
-                        Logger.getLogger(mainBoardWithComputerBase.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            while(turnCounter < 9){
-              int genrateRandom= rand.nextInt(9);
-              if("".equals(arr[genrateRandom])){
-                if ("X".equals(turn)){  
-                    
-                    
-                    imageView.get(genrateRandom).setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
-                    playerTurn = false;
-                    arr[genrateRandom]="X";
-                    //checkIfGameIsOver();
-                
-                }
-                else if("O".equals(turn)){
-                    
-                    imageView.get(genrateRandom).setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
-                    playerTurn = true;
-                    arr[genrateRandom]="O";
-                    
-                }
-                  break;
-              }
-              
+                Thread.sleep(300);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(mainBoardWithComputerBase.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            while (turnCounter < 9) {
+                int genrateRandom = rand.nextInt(9);
+                if ("".equals(arr[genrateRandom])) {
+                    if ("X".equals(turn)) {
+
+                        imageView.get(genrateRandom).setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
+                        playerTurn = false;
+                        arr[genrateRandom] = "X";
+                        //checkIfGameIsOver();
+
+                    } else if ("O".equals(turn)) {
+
+                        imageView.get(genrateRandom).setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
+                        playerTurn = true;
+                        arr[genrateRandom] = "O";
+
+                    }
+                    break;
+                }
+
+            }
+
         }
         //if it is hard
-        if (state ==2){
-             hardTurn=-1;
-                try {
-                        Thread.sleep(300);
-                } catch (InterruptedException ex) {
-                        Logger.getLogger(mainBoardWithComputerBase.class.getName()).log(Level.SEVERE, null, ex);
+        if (state == 2) {
+            hardTurn = -1;
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(mainBoardWithComputerBase.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            if ("O".equals(turn)) {
+                hardTurn = hard("O");
+                System.out.println("main.WithCombuter.computerTurn() " + hardTurn);
+                if (hardTurn != -1) {
+                    arr[hardTurn] = "O";
+                    imageView.get(hardTurn).setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
+                    playerTurn = true;
                 }
-                
-                  if("O".equals(turn)){
-                    hardTurn = hard("O");
-                      System.out.println("main.WithCombuter.computerTurn() "+ hardTurn);
-                    if (hardTurn !=-1){
-                        arr[hardTurn]="O";
-                        imageView.get(hardTurn).setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
-                        playerTurn=true;
-                    }
-                  }
-                  else{
-                      hardTurn = hard("X");
-                    if (hardTurn !=-1){
-                        arr[hardTurn]="X";
-                        imageView.get(hardTurn).setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
-                    }
-                    playerTurn=false;
-                    
-                  }
-        
+            } else {
+                hardTurn = hard("X");
+                if (hardTurn != -1) {
+                    arr[hardTurn] = "X";
+                    imageView.get(hardTurn).setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
+                }
+                playerTurn = false;
+
+            }
+
         }
-        buttons.forEach(button ->{
+        buttons.forEach(button -> {
             //setupButton(button,buttons.indexOf(button));
             button.setDisable(false);
         });
-        
+
     }
+
     private int hard(String turn) {
-        hardTurn=-1;
+        hardTurn = -1;
         //important for the win when the computer is X
-         if("O".equals(turn)){
-             for (int i=0;i<8;i++){
-             if("X".equals(arr[myNumbers[i][0]]) && "X".equals(arr[myNumbers[i][1]]) && "".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][2];
-             }
-             if("X".equals(arr[myNumbers[i][0]]) &&"".equals(arr[myNumbers[i][1]]) &&"X".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][1];
-             }
-             if("".equals(arr[myNumbers[i][0]]) &&"X".equals(arr[myNumbers[i][1]]) &&"X".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][0];
-             }
-             
-         }
-         }
-         //important for the win when the computer is O
-         else if("X".equals(turn)){
-             for (int i=0;i<8;i++){
-             if("O".equals(arr[myNumbers[i][0]]) &&"O".equals(arr[myNumbers[i][1]]) &&"".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][2];
-             }
-             if("O".equals(arr[myNumbers[i][0]]) &&"".equals(arr[myNumbers[i][1]]) &&"O".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][1];
-             }
-             if("".equals(arr[myNumbers[i][0]]) &&"O".equals(arr[myNumbers[i][1]]) &&"O".equals(arr[myNumbers[i][2]] )){
-                 hardTurn=myNumbers[i][0];
-             }
-             }
-         }
-        //to avoid lose
-        for (int i=0;i<8;i++){
-             if( "X".equals(arr[myNumbers[i][0]]) &&"X".equals(arr[myNumbers[i][1]]) &&"".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][2];
-             }
-             if( "X".equals(arr[myNumbers[i][0]]) &&"".equals(arr[myNumbers[i][1]]) &&"X".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][1];
-             }
-             if("".equals(arr[myNumbers[i][0]]) &&"X".equals(arr[myNumbers[i][1]]) &&"X".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][0];
-             }
-             if("".equals(arr[myNumbers[i][2]]) &&"O".equals(arr[myNumbers[i][1]]) &&"O".equals(arr[myNumbers[i][0]])){
-                 hardTurn=myNumbers[i][2];
-             }
-             if("".equals(arr[myNumbers[i][1]]) &&"O".equals(arr[myNumbers[i][2]]) &&"O".equals(arr[myNumbers[i][0]])){
-                 hardTurn=myNumbers[i][1];
-             }
-             if("".equals(arr[myNumbers[i][0]]) &&"O".equals(arr[myNumbers[i][1]]) &&"O".equals(arr[myNumbers[i][2]])){
-                 hardTurn=myNumbers[i][0];
-             }
-         }   
-        
-         
-         //generate random if it is still un changed
-         if(hardTurn ==-1 ){
-                        while(turnCounter <9){
-                            int genrateRandom= rand.nextInt(9);
-                            if("".equals(arr[genrateRandom])){
-                                hardTurn=genrateRandom;
-                                break;
-                            }
-                        }
+        if ("O".equals(turn)) {
+            for (int i = 0; i < 8; i++) {
+                if ("X".equals(arr[myNumbers[i][0]]) && "X".equals(arr[myNumbers[i][1]]) && "".equals(arr[myNumbers[i][2]])) {
+                    hardTurn = myNumbers[i][2];
+                }
+                if ("X".equals(arr[myNumbers[i][0]]) && "".equals(arr[myNumbers[i][1]]) && "X".equals(arr[myNumbers[i][2]])) {
+                    hardTurn = myNumbers[i][1];
+                }
+                if ("".equals(arr[myNumbers[i][0]]) && "X".equals(arr[myNumbers[i][1]]) && "X".equals(arr[myNumbers[i][2]])) {
+                    hardTurn = myNumbers[i][0];
+                }
+
             }
-         
-                        System.out.println("hiiiiii " +hardTurn);
+        } //important for the win when the computer is O
+        else if ("X".equals(turn)) {
+            for (int i = 0; i < 8; i++) {
+                if ("O".equals(arr[myNumbers[i][0]]) && "O".equals(arr[myNumbers[i][1]]) && "".equals(arr[myNumbers[i][2]])) {
+                    hardTurn = myNumbers[i][2];
+                }
+                if ("O".equals(arr[myNumbers[i][0]]) && "".equals(arr[myNumbers[i][1]]) && "O".equals(arr[myNumbers[i][2]])) {
+                    hardTurn = myNumbers[i][1];
+                }
+                if ("".equals(arr[myNumbers[i][0]]) && "O".equals(arr[myNumbers[i][1]]) && "O".equals(arr[myNumbers[i][2]])) {
+                    hardTurn = myNumbers[i][0];
+                }
+            }
+        }
+        //to avoid lose
+        for (int i = 0; i < 8; i++) {
+            if ("X".equals(arr[myNumbers[i][0]]) && "X".equals(arr[myNumbers[i][1]]) && "".equals(arr[myNumbers[i][2]])) {
+                hardTurn = myNumbers[i][2];
+            }
+            if ("X".equals(arr[myNumbers[i][0]]) && "".equals(arr[myNumbers[i][1]]) && "X".equals(arr[myNumbers[i][2]])) {
+                hardTurn = myNumbers[i][1];
+            }
+            if ("".equals(arr[myNumbers[i][0]]) && "X".equals(arr[myNumbers[i][1]]) && "X".equals(arr[myNumbers[i][2]])) {
+                hardTurn = myNumbers[i][0];
+            }
+            if ("".equals(arr[myNumbers[i][2]]) && "O".equals(arr[myNumbers[i][1]]) && "O".equals(arr[myNumbers[i][0]])) {
+                hardTurn = myNumbers[i][2];
+            }
+            if ("".equals(arr[myNumbers[i][1]]) && "O".equals(arr[myNumbers[i][2]]) && "O".equals(arr[myNumbers[i][0]])) {
+                hardTurn = myNumbers[i][1];
+            }
+            if ("".equals(arr[myNumbers[i][0]]) && "O".equals(arr[myNumbers[i][1]]) && "O".equals(arr[myNumbers[i][2]])) {
+                hardTurn = myNumbers[i][0];
+            }
+        }
+
+        //generate random if it is still un changed
+        if (hardTurn == -1) {
+            while (turnCounter < 9) {
+                int genrateRandom = rand.nextInt(9);
+                if ("".equals(arr[genrateRandom])) {
+                    hardTurn = genrateRandom;
+                    break;
+                }
+            }
+        }
+
+        System.out.println("hiiiiii " + hardTurn);
         return hardTurn;
     }
 
-    public mainBoardWithComputerBase(int state1) {
-        state=state1;
+    public mainBoardWithComputerBase(int state1, Stage window) {
+        state = state1;
         borderView = new ImageView();
         playerImage1 = new ImageView();
+        this.window = window;
         text = new Text();
         text0 = new Text();
         text1 = new Text();
@@ -316,22 +316,21 @@ public class mainBoardWithComputerBase extends AnchorPane {
         xInTitle = new ImageView();
         oInTitle = new ImageView();
         robotImage = new ImageView();
-        saveState = new JFXButton();
-        
+        playAgain = new JFXButton();
+
         // int playerTurn = 0;
         //arraylist of all buttons  and imageview in the game
-        buttons = new ArrayList<>(Arrays.asList(button1,button2,button3,button4,button5,button6,button7,button8,button9));
-        imageView = new ArrayList<>(Arrays.asList(button1Image,button2Image,button3Image,button4Image,button5Image,button6Image,button7Image,button8Image,button9Image));
+        buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9));
+        imageView = new ArrayList<>(Arrays.asList(button1Image, button2Image, button3Image, button4Image, button5Image, button6Image, button7Image, button8Image, button9Image));
         //My Initializable 
-        buttons.forEach(button ->{
-            setupButton(button,buttons.indexOf(button));
+        buttons.forEach(button -> {
+            setupButton(button, buttons.indexOf(button));
             button.setFocusTraversable(false);
         });
-        for(int i=0;i<9;i++){
-            arr[i]="";
+        for (int i = 0; i < 9; i++) {
+            arr[i] = "";
         }
-        
-        
+
         setId("AnchorPane");
         setPrefHeight(509.0);
         setPrefWidth(746.0);
@@ -502,12 +501,25 @@ public class mainBoardWithComputerBase extends AnchorPane {
         robotImage.setPreserveRatio(true);
         robotImage.setImage(new Image(getClass().getResource("Images/robot.png").toExternalForm()));
 
-        saveState.setLayoutX(576.0);
-        saveState.setLayoutY(440.0);
-        saveState.setStyle("-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;");
-        saveState.setText("save state");
-        
-        
+        playAgain.setLayoutX(576.0);
+        playAgain.setLayoutY(440.0);
+        playAgain.setStyle("-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;");
+        playAgain.setText("Play Again");
+        playAgain.setOnMouseClicked((event) -> {
+            System.out.println("again");
+
+            Platform.runLater(() -> {
+                //         Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(""));
+
+                mainBoardWithComputerBase root = new mainBoardWithComputerBase(2, window);
+                Scene scene = new Scene(root);
+                window.setScene(scene);
+                window.setResizable(false);
+                window.show();
+
+            });
+        });
+
         getChildren().add(borderView);
         getChildren().add(playerImage1);
         getChildren().add(text);
@@ -525,7 +537,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
         getChildren().add(xInTitle);
         getChildren().add(oInTitle);
         getChildren().add(robotImage);
-        getChildren().add(saveState);
+        getChildren().add(playAgain);
 
     }
 }

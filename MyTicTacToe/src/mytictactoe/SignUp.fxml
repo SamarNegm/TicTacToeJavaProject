@@ -9,10 +9,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import com.jfoenix.controls.JFXButton?>
-<AnchorPane fx:id="AnchorPane" prefHeight="519.0" prefWidth="397.0" style="-fx-background-color: ffff;"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignupController">
+<AnchorPane fx:id="AnchorPane" prefHeight="573.0" prefWidth="397.0" style="-fx-background-color: ffff;"  xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignupController">
 
    <children>
-      <AnchorPane layoutX="37.0" layoutY="97.0" prefHeight="400" prefWidth="323.0" style="-fx-background-color: #1db2ca; -fx-background-radius: 30;">
+      <AnchorPane layoutX="37.0" layoutY="97.0" prefHeight="425" prefWidth="323.0" style="-fx-background-color: #1db2ca; -fx-background-radius: 30;">
          <children>
   
             <Button fx:id="logIn" onAction="#SignIn" layoutX="18.0" layoutY="345.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="296.0" style="-fx-background-radius: 20; -fx-text-fill: #6ac08f; -fx-background-color: #ffff; -fx-border-color: #6ac08f; -fx-border-radius: 30;" text="Sign In" />
