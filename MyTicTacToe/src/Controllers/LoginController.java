@@ -8,6 +8,7 @@ package Controllers;
 import DataBase.DataBase;
 import static DataBase.DataBase.Connet;
 import Handlers.ClientHandler;
+import Handlers.Encryption;
 import Models.Player;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -40,7 +41,6 @@ import org.json.simple.JSONObject;
  */
 public class LoginController implements Initializable {
 
-
     @FXML
     TextField uname;
     @FXML
@@ -52,6 +52,7 @@ public class LoginController implements Initializable {
     public LoginController() {
 
     }
+
     public Label getErrorLable() {
         return errorLable;
     }
@@ -64,22 +65,25 @@ public class LoginController implements Initializable {
     public void SignIn(ActionEvent event) {
         if (!uname.getText().isEmpty() && !pass.getText().isEmpty()) {
             player = new Player();
+            String salt = Encryption.getSalt(15);
+            String encryptedPassword = Encryption.generateSecurePassword(pass.getText(), salt);
+
             ClientHandler.setLoginCtrl(this);
             ClientHandler.setPlayer(player);
-
+       System.out.println("enc "+encryptedPassword);
             //Generate a new login request to the server.
             JSONObject loginReq = new JSONObject();
             loginReq.put("type", "signin");
             loginReq.put("username", uname.getText());
-            loginReq.put("password", pass.getText());
+            loginReq.put("password", encryptedPassword);
             ClientHandler.sendRequest(loginReq);
             readerThread = new Thread(new ClientHandler.recieveRespone());
         }
-    
-}
-public void navigateTo(String screen)
-{
-          try {
+
+    }
+
+    public void navigateTo(String screen) {
+        try {
             Stage s = (Stage) pass.getScene().getWindow();
             s.close();
             Parent parent = FXMLLoader.load(getClass().getResource(screen));
@@ -90,10 +94,11 @@ public void navigateTo(String screen)
         } catch (IOException ex) {
             System.out.println("not load");
         }
-}
+    }
+
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-   
-    }    
-    
+
+    }
+
 }

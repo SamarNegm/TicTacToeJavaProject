@@ -8,6 +8,7 @@ package Controllers;
 import mytictactoe.*;
 import DataBase.DataBase;
 import Handlers.ClientHandler;
+import Handlers.Encryption;
 import Models.Player;
 import java.io.IOException;
 import java.net.URL;
@@ -30,43 +31,46 @@ import org.json.simple.JSONObject;
  * @author MrMr
  */
 public class SignupController implements Initializable {
+
     @FXML
     TextField uname;
     @FXML
-    PasswordField password,confirm;
+    PasswordField password, confirm;
     @FXML
     Label error;
     Thread readerThread;
     Player player = null;
-    public void SignUp(ActionEvent event)
-    {
-         
-         if(password.getText().equals(confirm.getText())&&!password.getText().isEmpty()&&!uname.getText().isEmpty())
-     
-         {
-               player = new Player();
+
+    public void SignUp(ActionEvent event) {
+
+        if (password.getText().equals(confirm.getText()) && !password.getText().isEmpty() && !uname.getText().isEmpty()) {
+            player = new Player();
             ClientHandler.setSignUpCtrl(this);
             ClientHandler.setPlayer(player);
+             String salt = Encryption.getSalt(15);
+            String encryptedPassword = Encryption.generateSecurePassword(password.getText(), salt);
 
             //Generate a new SignUp request to the server.
             JSONObject loginReq = new JSONObject();
             loginReq.put("type", "signup");
             loginReq.put("username", uname.getText());
-            loginReq.put("password", password.getText());
+            
+            System.out.println("enc "+encryptedPassword);
+            loginReq.put("password",encryptedPassword);
             ClientHandler.sendRequest(loginReq);
             readerThread = new Thread(new ClientHandler.recieveRespone());
-         }
-         else
-             error.setText("Password or User Name Not Valid");
+        } else {
+            error.setText("Password or User Name Not Valid");
+        }
     }
-      public void SignIn(ActionEvent event)
-    {
+
+    public void SignIn(ActionEvent event) {
         navigateTo("/mytictactoe/Login.fxml");
 
     }
-public void navigateTo(String screen)
-{
-          try {
+
+    public void navigateTo(String screen) {
+        try {
             Stage s = (Stage) password.getScene().getWindow();
             s.close();
             Parent parent = FXMLLoader.load(getClass().getResource(screen));
@@ -77,13 +81,14 @@ public void navigateTo(String screen)
         } catch (IOException ex) {
             System.out.println("not load");
         }
-}
+    }
+
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     public Label getErrorLable() {
-       return error;
+        return error;
     }
-    
+
 }
