@@ -59,7 +59,7 @@ public class LoginController implements Initializable {
     Player player = null;
 
     public void SignUp(ActionEvent event) {
-        navigateTo("/mytictactoe/SignUp.fxml");
+        ClientHandler.navigateTo("/mytictactoe/SignUp.fxml");
     }
 
     public void SignIn(ActionEvent event) {
@@ -82,19 +82,7 @@ public class LoginController implements Initializable {
 
     }
 
-    public void navigateTo(String screen) {
-        try {
-            Stage s = (Stage) pass.getScene().getWindow();
-            s.close();
-            Parent parent = FXMLLoader.load(getClass().getResource(screen));
 
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(parent));
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println("not load");
-        }
-    }
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

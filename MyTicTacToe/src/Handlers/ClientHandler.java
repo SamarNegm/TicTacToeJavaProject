@@ -22,8 +22,11 @@ import Controllers.SignupController;
 import mytictactoe.mainBoardWithComputerBase;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.layout.AnchorPane;
 import mytictactoe.MyTicTacToe;
-
+import org.json.simple.JSONArray;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -42,7 +45,11 @@ public class ClientHandler {
     private static String currentScene;
     private static DataOutputStream ps;
     private static LoginController loginctrl;
-     private static SignupController signUpCtrl;
+    private static SignupController signUpCtrl;
+    private static ObservableList<String> name = FXCollections.observableArrayList();
+    private static ObservableList<String> status = FXCollections.observableArrayList();
+    private static ObservableList<String> score = FXCollections.observableArrayList();
+    private static ObservableList<String> games = FXCollections.observableArrayList();
 
     public static SignupController getSignUpCtrl() {
         return signUpCtrl;
@@ -51,9 +58,10 @@ public class ClientHandler {
     public static void setSignUpCtrl(SignupController signUpCtrl) {
         ClientHandler.signUpCtrl = signUpCtrl;
     }
-    private ClientHandler(){  
+
+    private ClientHandler() {
     }
-    
+
     public static Socket getClientSocket() {
         return clientSocket;
     }
@@ -114,7 +122,7 @@ public class ClientHandler {
         boolean res = true;
         try {
             clientSocket = new Socket("127.0.0.1", 5055);
-          
+
             ps = new DataOutputStream(clientSocket.getOutputStream());
             ds = new DataInputStream(clientSocket.getInputStream());
         } catch (IOException ex) {
@@ -133,43 +141,45 @@ public class ClientHandler {
     }
 
     public static void sendRequest(JSONObject jsonMsg) {
-        if(connectToServer()){
-        try {
-            System.out.println("sending requst..." + jsonMsg.toString());
-            ps.writeUTF(jsonMsg.toJSONString());
-           
-        } catch (IOException ex) {
+        if (connectToServer()) {
+            try {
+                System.out.println("sending requst..." + jsonMsg.toString());
+                ps.writeUTF(jsonMsg.toJSONString());
+
+            } catch (IOException ex) {
+            }
         }
-    }
     }
 
-      /* Receive requests from the server and send them to the handler */
+    /* Receive requests from the server and send them to the handler */
     public static class recieveRespone extends Thread {
+
         boolean running = true;
         String response;
-        public recieveRespone ()  {
-          
+
+        public recieveRespone() {
+
             this.start();
         }
+
         @Override
-        public void run(){
+        public void run() {
             while (running) {
                 try {
-              
-                    
+
                     response = ds.readUTF();
                     if (response != null) {
                         handleResponse(response);
                     }
                 } catch (IOException ex) {
-                    running=false;
+                    running = false;
                     navigateTo("mainXOboard.fxml");
                 }
             }
         }
     }
-    private static void handleResponse(String response)
-    {
+
+    private static void handleResponse(String response) {
         try {
             JSONParser parser = new JSONParser();
             JSONObject jsonMsg = (JSONObject) parser.parse(response);
@@ -180,61 +190,136 @@ public class ClientHandler {
                 case "signup":
                     Login(jsonMsg);
                     break;
-        
-                
+                case "update":
+                    updateList(jsonMsg);
+                    break;
+
             }
         } catch (ParseException ex) {
         }
     }
+
     public static void navigateTo(String screen) {
         setCurrentScene(screen);
         Platform.runLater(() -> {
-            //     Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(screen));
-            
-            mainBoardWithComputerBase root =new mainBoardWithComputerBase(2,window);
-            Scene scene = new Scene(root);
+            try {
+
+                window.close();
+                Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(screen));
+
+                Scene scene = new Scene(root);
+                window.setScene(scene);
+                window.setResizable(false);
+                window.show();
+            } catch (IOException ex) {
+                Logger.getLogger(ClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+    }
+
+    public static void navigateTo(AnchorPane screen) {
+
+        Platform.runLater(() -> {
+
+            Scene scene = new Scene(screen);
             window.setScene(scene);
             window.setResizable(false);
             window.show();
         });
     }
-    
-    private static void Login(JSONObject response)
-    {
-        System.out.println("yaaaaaa login..."+response.toString());
+
+    private static void Login(JSONObject response) {
+        System.out.println("yaaaaaa login..." + response.toString());
         String request = response.get("type").toString();
         String resStatus = response.get("responseStatus").toString();
-        if(resStatus.equals("true")){
+        if (resStatus.equals("true")) {
             player.setScore(Integer.parseInt(response.get("score").toString()));
             player.setUsername(response.get("username").toString());
             player.setStatus(response.get("status").toString());
-            navigateTo("mainXOboard.fxml");
-        }
-        else{
+            navigateTo(new mainBoardWithComputerBase(2, window));
+        } else {
             String error = response.get("errorMsg").toString();
-             System.out.println(error.toString()+"............");
+            System.out.println(error.toString() + "............");
             String warning;
-            
-            if ( request.equals("signin") && error.equals("signedin"))
-                warning="You are already signed in.";
-            else if ( request.equals("signin") && error.equals("fail"))
-                warning="Wrong user name or password";
-            else if ( request.equals("signup") && error.equals("fail"))
-                warning="Username already exists.";
-            else
-                warning="unexpected";
+
+            if (request.equals("signin") && error.equals("signedin")) {
+                warning = "You are already signed in.";
+            } else if (request.equals("signin") && error.equals("fail")) {
+                warning = "Wrong user name or password";
+            } else if (request.equals("signup") && error.equals("fail")) {
+                warning = "Username already exists.";
+            } else {
+                warning = "unexpected";
+            }
             Platform.runLater(() -> {
-            
+
                 System.out.println(warning);
-                if (request.equals("signin"))
-                loginctrl.getErrorLable().setText(warning);
-                else
-                 signUpCtrl.getErrorLable().setText(warning);
-            
+                if (request.equals("signin")) {
+                    loginctrl.getErrorLable().setText(warning);
+                } else {
+                    signUpCtrl.getErrorLable().setText(warning);
+                }
+
             });
         }
     }
+
     public static void setLoginCtrl(LoginController ctrl) {
         loginctrl = ctrl;
+    }
+
+    /**
+     * ******************* update Players list Response Handler ********************
+     */
+    private static void updateList(JSONObject response) {
+        System.out.println("upsateeeeeeeee");
+        JSONObject JSONplayer;
+        JSONParser parser = new JSONParser();
+        JSONArray list = (JSONArray) response.get("list");
+
+        name = FXCollections.observableArrayList();
+        status = FXCollections.observableArrayList();
+        score = FXCollections.observableArrayList();
+
+        for (int i = 0; i < list.size(); i++) {
+            try {
+                JSONplayer = (JSONObject) parser.parse(list.get(i).toString());
+                name.add(JSONplayer.get("username").toString());
+                score.add(JSONplayer.get("score").toString());
+                status.add(JSONplayer.get("status").toString());
+                System.out.println(name.indexOf(i)+" accccccc");
+            } catch (ParseException ex) {
+            }
+        }
+//        switch (currentScene) {
+//            case "Start":
+//                Platform.runLater(() -> {
+//                    startctrl.updateTable(name, score, status);
+//                });
+//                break;
+//            case "Newgame":
+//                Platform.runLater(() -> {
+//                    newgamectrl.updateTable(name, score, status);
+//                });
+//                break;
+//            case "Loadgame":
+//                Platform.runLater(() -> {
+//                    loadgamectrl.updateTable(name, score, status);
+//                });
+//                break;
+//            case "Invite":
+//                Platform.runLater(() -> {
+//                    Invitectrl.updateTable(name, score, status);
+//                });
+//                break;
+//            case "PlayMode":
+//                Platform.runLater(() -> {
+//                    Playmodectrl.updateTable(name, score, status);
+//                });
+//                break;
+//
+//            default:
+//                break;
+//        }
     }
 }

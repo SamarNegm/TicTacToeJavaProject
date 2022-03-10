@@ -16,6 +16,7 @@ public abstract class Requests {
     public static final String SIGN_UP = "signup";
     public static final String CLOSE = "close";
     public static final String SIGN_OUT = "signout";
+     public static final String UPDATE_ACTIVE_USERS = "update";
 
     
 }

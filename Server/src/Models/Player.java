@@ -5,6 +5,8 @@
  */
 package Models;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author MrMr

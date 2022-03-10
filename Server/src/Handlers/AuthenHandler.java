@@ -7,6 +7,7 @@ package Handlers;
 
 import DataBase.DataBase;
 import Models.Player;
+import Shared.DataBaseHandler;
 import Shared.JSONHandeling;
 import Shared.Requests;
 import java.io.DataInputStream;
@@ -88,7 +89,7 @@ public class AuthenHandler extends Thread {
     }
 
     private void userRequestHandler(String jsonStr) throws ParseException, IOException {
-        System.out.println("vvvv");
+
         jsonObj = JSONHandeling.parseStringToJSON(jsonStr);
         JSONObject responseJsonObj = new JSONObject();
         //findout which request
@@ -119,6 +120,7 @@ public class AuthenHandler extends Thread {
 
     public boolean IsAuthenticated(String uname, String Pass) {
         JSONObject responseJsonObj = new JSONObject();
+        JSONObject online = new JSONObject();
         try {
 
             stmt = con.createStatement();
@@ -127,17 +129,27 @@ public class AuthenHandler extends Thread {
                 System.out.println(rs.getString(2));
                 if (rs.getString(2).equals(uname) && rs.getString(3).equals(Pass)) {
                     System.out.println("ok*******");
-                    Player currPlayer = new Player(rs.getInt(1), uname, Pass, rs.getString(5), rs.getInt(4));
-
+                    Player currPlayer = new Player(rs.getInt(1), uname, Pass, "Online", rs.getInt(4));
+                   
+       
                     ///send to client acceptance  
                     responseJsonObj = JSONHandeling.playerToJSON(currPlayer);
-
+                    
                     //add the json response construction
                     responseJsonObj = JSONHandeling.constructJSONResponse(responseJsonObj, Requests.SIGN_IN);
 
                     outputStream.writeUTF(responseJsonObj.toString());
 
                     System.out.println("sent" + responseJsonObj.toString());
+                   // new PlayerHandler(this.socket, currPlayer);
+            
+                    //update user satuse
+                //    new ActiveUsersHandler();
+                 //  PlayerHandler.updateUsrStatus(uname, "Online");
+                   
+                    
+                         //stop this thread
+                    this.stop();
                     return true;
                 }
             }
@@ -148,17 +160,16 @@ public class AuthenHandler extends Thread {
             Logger.getLogger(AuthenHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("not ok||");
-        
-      //  send error massage to client 
+
+        //  send error massage to client 
         try {
-              responseJsonObj = JSONHandeling.errorToJSON(Requests.SIGN_IN, "fail");
+            responseJsonObj = JSONHandeling.errorToJSON(Requests.SIGN_IN, "fail");
             outputStream.writeUTF(responseJsonObj.toString());
         } catch (IOException ex) {
             Logger.getLogger(AuthenHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-
 
     public void signUp(String uname, String password) {
         System.out.println("Sinnig up");
@@ -228,7 +239,22 @@ public class AuthenHandler extends Thread {
         return false;
     }
 
-    private void close() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void close() {
+
+        try {
+            //Close the connection
+            socket.close();
+
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+
+        connectedClientsList.remove(this);
+
+        //set variable to break the loop incase thread didn't close
+        isStayAlive = false;
+
+        //close this thread
+        this.stop();
     }
 }

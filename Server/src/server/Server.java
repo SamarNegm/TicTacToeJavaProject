@@ -4,6 +4,7 @@
 
 package server;
 
+import Handlers.ActiveUsersHandler;
 import Handlers.AuthenHandler;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -22,7 +23,7 @@ public class Server {
     
     private ServerSocket serverSocket;
     private boolean isServerUp = false;
-    
+
     private ClientAcceptListener clientAcceptListener;
  
     //Client accept listener inner class
@@ -49,6 +50,7 @@ public class Server {
                     
                     //init thread to receive the client
                     new AuthenHandler(clientSocket);
+                
                     
                 } catch (IOException ex) {
                  //   ServerUtils.appendLog("[ClientAcceptListener class]: Connection dropped (client not accepted). ");
@@ -72,6 +74,7 @@ public class Server {
             
             serverSocket = new ServerSocket(5055);
             clientAcceptListener = new ClientAcceptListener();
+
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }

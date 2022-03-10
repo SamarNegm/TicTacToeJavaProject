@@ -65,23 +65,10 @@ public class SignupController implements Initializable {
     }
 
     public void SignIn(ActionEvent event) {
-        navigateTo("/mytictactoe/Login.fxml");
+        ClientHandler.navigateTo("/mytictactoe/Login.fxml");
 
     }
 
-    public void navigateTo(String screen) {
-        try {
-            Stage s = (Stage) password.getScene().getWindow();
-            s.close();
-            Parent parent = FXMLLoader.load(getClass().getResource(screen));
-
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene(parent));
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println("not load");
-        }
-    }
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
