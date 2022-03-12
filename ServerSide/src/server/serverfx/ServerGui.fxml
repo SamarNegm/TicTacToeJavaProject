@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="serverGui" prefHeight="681.0" prefWidth="993.0" style="-fx-background-color: #013333;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="server.serverfx.ServerGuiController">
-   <AnchorPane layoutX="485.0" layoutY="110.0" prefHeight="479.0" prefWidth="467.0" style="-fx-background-radius: 40; -fx-border-radius: 37; -fx-border-color: #99c5d3;">
+   <AnchorPane layoutX="485.0" layoutY="110.0" prefHeight="479.0" prefWidth="467.0" style="-fx-background-radius: 40; -fx-border-radius: 37; -fx-border-color: #89ecf5;">
       <children>
               <TableView fx:id="tableView" layoutX="29.0" layoutY="61.0" prefHeight="388.0" prefWidth="409.0" style="-fx-background-color: #013333; -fx-background-radius: 50; -fx-border-radius: 30;">
               <columns>
@@ -18,31 +21,89 @@
                   <TableColumn fx:id="tableColumn1" prefWidth="150.0" style="-fx-text-fill: #99c5d3;" text="Score" />
               </columns>
             </TableView>
-         <Text fill="#99c5d3" layoutX="147.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Players data" wrappingWidth="191.1328125" />
+         <Text fill="#99c5d3" layoutX="143.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players data" wrappingWidth="263.1328125">
+            <effect>
+               <DropShadow color="#7fd4eb" />
+            </effect>
+            <font>
+               <Font name="Arial Rounded MT Bold" size="31.0" />
+            </font>
+         </Text>
       </children>
    </AnchorPane>
-   <ToggleButton id="controlBtn" fx:id="sart" layoutX="360.0" layoutY="602.0" mnemonicParsing="false" onAction="#sartServer" prefHeight="60.0" prefWidth="210.0" style="-fx-background-color: #99c5d3; -fx-background-radius: 30; -fx-text-fill: #013333; -fx-font-size: 30;" text="Start Server" />
+   <ToggleButton id="controlBtn" fx:id="sart" layoutX="360.0" layoutY="602.0" mnemonicParsing="false" onAction="#sartServer" prefHeight="60.0" prefWidth="210.0" style="-fx-background-color: #99c5d3; -fx-background-radius: 30;" text="Start Server" textFill="#ebe2e2" textOverrun="LEADING_ELLIPSIS">
+      <font>
+         <Font name="Arial Rounded MT Bold" size="20.0" />
+      </font>
+      <effect>
+         <DropShadow color="#46b56ad6" />
+      </effect></ToggleButton>
    <AnchorPane layoutX="290.0" layoutY="14.0" prefHeight="83.0" prefWidth="390.0" style="-fx-border-color: #99c5d3; -fx-border-radius: 30;">
       <children>
-         <Text fill="#99c5d3" layoutX="49.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 40;" text="Tic Tac Toe" wrappingWidth="200.1328125" />
          <ImageView fitHeight="42.0" fitWidth="66.0" layoutX="292.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@logo.png" />
             </image>
          </ImageView>
+         <Text fill="#99c5d3" layoutX="37.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic-Tac-toe" wrappingWidth="263.1328125">
+            <effect>
+               <DropShadow color="#7fd4eb" />
+            </effect>
+            <font>
+               <Font name="Arial Rounded MT Bold" size="39.0" />
+            </font>
+         </Text>
       </children>
    </AnchorPane>
-   <AnchorPane layoutX="90.0" layoutY="114.0" prefHeight="471.0" prefWidth="375.0" style="-fx-border-color: #99c5d3; -fx-border-radius: 30;">
+   <AnchorPane layoutX="90.0" layoutY="114.0" prefHeight="471.0" prefWidth="375.0" style="-fx-border-color: #89ecf5; -fx-border-radius: 30;">
       <children>
-         <AnchorPane layoutX="21.0" layoutY="100.0" prefHeight="354.0" prefWidth="335.0" style="-fx-border-color: #99c5d3; -fx-border-radius: 30;">
+         <AnchorPane layoutX="21.0" layoutY="100.0" prefHeight="354.0" prefWidth="335.0" style="-fx-border-color: #89ecf5; -fx-border-radius: 30;">
             <children>
-               <Text fill="#99c5d3" layoutX="14.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Abd El-Fatah" wrappingWidth="191.1328125" />
-               <Text fill="#99c5d3" layoutX="14.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Marwa" wrappingWidth="191.1328125" />
-               <Text fill="#99c5d3" layoutX="14.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="M.Shehata" wrappingWidth="191.1328125" />
-               <Text fill="#99c5d3" layoutX="14.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Samar" wrappingWidth="191.1328125" />
+               <Text fill="#99c5d3" layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Abd El-Fatah" wrappingWidth="263.1328125">
+                  <effect>
+                     <DropShadow color="#7fd4eb" />
+                  </effect>
+                  <font>
+                     <Font name="Arial Rounded MT Bold" size="21.0" />
+                  </font>
+               </Text>
+               <Text fill="#99c5d3" layoutX="14.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marwa" wrappingWidth="263.1328125">
+                  <effect>
+                     <DropShadow color="#7fd4eb" />
+                  </effect>
+                  <font>
+                     <Font name="Arial Rounded MT Bold" size="21.0" />
+                  </font>
+               </Text>
+               <Text fill="#99c5d3" layoutX="14.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M.Shehata" wrappingWidth="263.1328125">
+                  <effect>
+                     <DropShadow color="#7fd4eb" />
+                  </effect>
+                  <font>
+                     <Font name="Arial Rounded MT Bold" size="21.0" />
+                  </font>
+               </Text>
+               <Text fill="#99c5d3" layoutX="14.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Samar" wrappingWidth="263.1328125">
+                  <effect>
+                     <DropShadow color="#7fd4eb" />
+                  </effect>
+                  <font>
+                     <Font name="Arial Rounded MT Bold" size="21.0" />
+                  </font>
+               </Text>
             </children>
          </AnchorPane>
-         <Text fill="#99c5d3" layoutX="45.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Made By :" wrappingWidth="191.1328125" />
+         <Text fill="#99c5d3" layoutX="45.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Made By:" wrappingWidth="263.1328125">
+            <effect>
+               <DropShadow color="#7fd4eb" />
+            </effect>
+            <font>
+               <Font name="Arial Rounded MT Bold" size="31.0" />
+            </font>
+         </Text>
       </children>
+      <cursor>
+         <Cursor fx:constant="NONE" />
+      </cursor>
    </AnchorPane>
 </AnchorPane>

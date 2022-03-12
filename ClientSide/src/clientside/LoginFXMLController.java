@@ -1,7 +1,7 @@
-
 package clientside;
 
 import clientHandler.ClientHandler;
+import clientHandler.Encryption;
 import clientHandler.Player;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,11 +30,12 @@ public class LoginFXMLController implements Initializable {
     private Label userLbl;
     @FXML
     private Label warningLbl;
-    
+
     Player player;
-    
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -42,69 +43,69 @@ public class LoginFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         player = new Player();
         ClientHandler.setLoginCtrl(this);
-    }    
+    }
 
     @FXML
     private void loginHandler(MouseEvent event) {
         String username = txtUsername.getText();
-        String password = txtPassword.getText();                
-                
+        String password = txtPassword.getText();
+
         boolean checkUname = player.checkUsername(username);
         boolean checkPass = player.checkPassword(password);
 
-        if(!checkUname){
+        if (!checkUname) {
             warningLbl.setText("Invalid username format");
-        }
-        else if(!checkPass){
+        } else if (!checkPass) {
             warningLbl.setText("Invalid password format, should be between 6 and 20 characters");
-        }
-        else{
+        } else {
             warningLbl.setText("");
-                    
+
             player.setUsername(username);
-            ClientHandler.setPlayer(player); 
-                    
+            ClientHandler.setPlayer(player);
+            String salt = Encryption.getSalt(15);
+            String encryptedPassword = Encryption.generateSecurePassword(password, salt);
+
             //Generate a new login request to the server.
             JSONObject loginReq = new JSONObject();
             loginReq.put("type", "signin");
             loginReq.put("username", username);
-            loginReq.put("password", password);
+            loginReq.put("password",encryptedPassword);
             ClientHandler.sendRequest(loginReq);
-        }                
+        }
     }
 
     @FXML
     private void signupHandler(MouseEvent event) {
-        
-        String username=txtUsername.getText();
-        String password=txtPassword.getText();
-                
-        boolean checkUname = player.checkUsername(username);
-        boolean checkPass = player.checkPassword(password);                
 
-        if(!checkUname){
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        String salt = Encryption.getSalt(15);
+            String encryptedPassword = Encryption.generateSecurePassword(password, salt);
+
+        boolean checkUname = player.checkUsername(username);
+        boolean checkPass = player.checkPassword(password);
+
+        if (!checkUname) {
             warningLbl.setText("Invalid username format");
-        }
-        else if(!checkPass){
+        } else if (!checkPass) {
             warningLbl.setText("Invalid password format, should be between 6 and 20 characters");
-        }
-        else { 
+        } else {
             warningLbl.setText("");
             player.setUsername(username);
             ClientHandler.setPlayer(player);
-                    
+
             //Generate a new sign up request to the server.
             JSONObject signReq = new JSONObject();
             signReq.put("type", "signup");
             signReq.put("username", username);
-            signReq.put("password", password);
+            signReq.put("password", encryptedPassword);
             ClientHandler.sendRequest(signReq);
         }
-    }   
-    
+    }
+
     //getter for warning label
     public Label getLabel() {
-    return this.warningLbl;
+        return this.warningLbl;
     }
-    
+
 }

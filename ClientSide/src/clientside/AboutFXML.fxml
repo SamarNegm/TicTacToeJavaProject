@@ -10,26 +10,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #C7EAFB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.AboutFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #013333;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.AboutFXMLController">
    <children>
-      <Label alignment="CENTER" layoutX="4.0" layoutY="15.0" prefHeight="17.0" prefWidth="593.0" text="Tic Tac Toe" textFill="#ff5e5e">
+      <Label alignment="CENTER" layoutX="4.0" layoutY="15.0" prefHeight="17.0" prefWidth="593.0" text="Tic Tac Toe" textFill="#99c5d3d4">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
          <effect>
-            <DropShadow color="#ffa1b5" />
+            <DropShadow color="#36d8f5" />
          </effect>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="55.0" prefHeight="73.0" prefWidth="578.0" text="This is a simple Tic-Tac-Toe online game that is developed by a team of students at ITI, Smart Village branch,as a final project for the Java programming course." textAlignment="CENTER" wrapText="true">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="55.0" prefHeight="73.0" prefWidth="578.0" text="This is a simple Tic-Tac-Toe online game that is developed by a team of students at ITI, Smart Village branch,as a final project for the Java programming course." textAlignment="CENTER" textFill="#f5f4f4" wrapText="true">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseReleased="#homeBtn" style="-fx-background-color: white;" text="Home">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseReleased="#homeBtn" prefHeight="35.0" prefWidth="73.0" style="-fx-background-color: #99c5d3; -fx-background-radius: 30;" text="Home" textFill="#f5f7f8">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="15.0" />
          </font></Button>
-      <Button layoutX="11.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#switchLeft" prefHeight="19.0" prefWidth="30.0" style="-fx-background-color: #FEFFE2;" text="&lt;">
+      <Button layoutX="11.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#switchLeft" prefHeight="19.0" prefWidth="30.0" style="-fx-background-color: #99c5d3; -fx-background-radius: 30;" text="&lt;" textFill="#f2e8e8">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font>
@@ -116,27 +116,27 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="pageOne" layoutX="64.0" layoutY="262.0" prefHeight="239.0" prefWidth="481.0" style="-fx-background-color: #C7EAFB;">
+      <Pane fx:id="pageOne" layoutX="64.0" layoutY="262.0" prefHeight="239.0" prefWidth="481.0" style="-fx-background-color: #013333;">
          <children>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="34.0" prefHeight="35.0" prefWidth="459.0" text="Main features" textFill="#c32f2f" wrapText="true">
+            <Label alignment="CENTER" layoutX="11.0" layoutY="34.0" prefHeight="35.0" prefWidth="459.0" text="Main features" textFill="#013333" wrapText="true">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="22.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="75.0" prefHeight="129.0" prefWidth="505.0" text="• Play in single mode vs. computer in two levels of difficulities.          • Play with your friends in multi mode (online).                                   • Chat with the opponent inside the game.                                           • Save the game to continue playing it later.                                      • User-friendly GUI." wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="75.0" prefHeight="129.0" prefWidth="505.0" text="• Play in single mode vs. computer in two levels of difficulities.          • Play with your friends in multi mode (online).                                   • Chat with the opponent inside the game.                                           • Save the game to continue playing it later.                                      • User-friendly GUI." textFill="#eeeaea" wrapText="true">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Button layoutX="548.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#switchRigth" prefHeight="19.0" prefWidth="30.0" style="-fx-background-color: #FEFFE2;" text="&gt;">
+      <Button layoutX="548.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#switchRigth" prefHeight="19.0" prefWidth="30.0" style="-fx-background-color: #99c5d3; -fx-background-radius: 30;" text="&gt;" textFill="#f2f2f2">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font></Button>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/about.gif" />
+            <Image url="@../../../ServerSide/src/server/serverfx/87d720410cb06b028de5e3b250bfe391.gif" />
          </image>
       </ImageView>
    </children>

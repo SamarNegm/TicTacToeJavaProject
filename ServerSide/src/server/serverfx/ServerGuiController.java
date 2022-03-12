@@ -79,7 +79,7 @@ public class ServerGuiController implements Initializable {
 
     public void buttonStyle(String text, double font) {
         sart.setDisable(false);
-        sart.setStyle("-fx-background-color: #6ac08f;; -fx-background-radius: 30; -fx-text-fill: #013333; -fx-font-size: 30;");
+        sart.setStyle("-fx-background-color: #6ac08f;; -fx-background-radius: 30; -fx-text-fill: #ffff; -fx-font-size: 30;");
         sart.setText(text);
         sart.setTextFill(javafx.scene.paint.Color.WHITE);
         sart.setFont(new Font("Arial Bold", font));
@@ -94,7 +94,7 @@ public class ServerGuiController implements Initializable {
                 ServerUtils.clearLog(controlFlag);
                 serverInGUI.start();
                 buttonStyle("Running", 30.0);
-                sart.setStyle("-fx-background-color: #6ac08f;; -fx-background-radius: 30; -fx-text-fill: #013333; -fx-font-size: 30;");
+                sart.setStyle("-fx-background-color: #6ac08f;; -fx-background-radius: 30; -fx-text-fill: #ffff; -fx-font-size: 30;");
 
             } else {
 
