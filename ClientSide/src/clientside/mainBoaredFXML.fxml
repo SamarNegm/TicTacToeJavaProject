@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="746.0" style="-fx-background-color: ffff;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.MainBoaredController">
+
+
+    <stylesheets>
+        <URL value="@mainboardwithcomputer.css" />
+    </stylesheets>
+
+
+   <children>
+      <ImageView fitHeight="247.0" fitWidth="363.0" layoutX="148.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/borders.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="149.0" layoutX="14.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/plyer2.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="player1Label" layoutX="69.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #6ac08f;; -fx-font-size: 30;" text="Samr" textAlignment="CENTER" wrappingWidth="225.98828125" />
+      <Text layoutX="307.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 40; -fx-fill: #1db2ca; -fx-font-weight: bold;" text="VS" wrappingWidth="57.09375" />
+      <Text fx:id="player2Label" layoutX="378.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #6ac08f;; -fx-font-size: 30;" text="Me" textAlignment="CENTER" wrappingWidth="273.98828125" AnchorPane.rightAnchor="94.01171875" />
+
+            <ImageView fx:id="cell1" fitHeight="68.0" fitWidth="78.0" layoutX="164.0" layoutY="119.0" onMouseClicked="#cell1Handler" pickOnBounds="true" preserveRatio="true">
+
+            </ImageView>
+              <ImageView fx:id="cell2" fitHeight="69.0" fitWidth="83.0" layoutX="274.0" layoutY="121.0" onMouseClicked="#cell2Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/x.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell3" fitHeight="64.0" fitWidth="86.0" layoutX="386.0" layoutY="113.0" onMouseClicked="#cell3Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/o.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell4" fitHeight="67.0" fitWidth="81.0" layoutX="162.0" layoutY="207.0" onMouseClicked="#cell4Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/x.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell5" fitHeight="65.0" fitWidth="83.0" layoutX="272.0" layoutY="205.0" onMouseClicked="#cell5Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/o.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell6" fitHeight="65.0" fitWidth="78.0" layoutX="393.0" layoutY="206.0" onMouseClicked="#cell6Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/o.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell9" fitHeight="64.0" fitWidth="79.0" layoutX="386.0" layoutY="299.0" onMouseClicked="#cell9Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/x.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell8" fitHeight="63.0" fitWidth="88.0" layoutX="275.0" layoutY="298.0" onMouseClicked="#cell8Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/x.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cell7" fitHeight="65.0" fitWidth="78.0" layoutX="164.0" layoutY="298.0" onMouseClicked="#cell7Handler" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="57.0" layoutX="21.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="46.0" layoutX="666.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/o.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="175.0" fitWidth="166.0" layoutX="531.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/player2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="saveBtn" layoutX="576.0" layoutY="440.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;" text="Save" />
+      <Button fx:id="mainMenue" layoutX="148.0" layoutY="440.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;" text="Main Menue" />
+           <AnchorPane fx:id="resultAnchor" layoutX="55" layoutY="55.0" prefHeight="293.0" prefWidth="579.0" visible="false">
+         <children>
+            <SubScene fx:id="resultSubscene"  blendMode="SRC_ATOP" fill="#ffffff00" height="292.0" width="570.0">
+               <root>
+                  <Region />
+               </root>
+            </SubScene>
+            <ImageView fitHeight="299.0" fitWidth="570.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/bg.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="winnerLabel" alignment="BASELINE_CENTER" layoutX="1.0" layoutY="22.0" prefHeight="49.0" prefWidth="570.0" text="winnerLabel" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="35.0" />
+               </font>
+               <effect>
+                  <Glow level="0.42" />
+               </effect>
+            </Label>
+<!--            <Button alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="145.0" layoutY="217.0" mnemonicParsing="false" onAction="#playAgainHandler" prefHeight="44.0" prefWidth="129.0" style="-fx-background-color: white;" text="Play again" textAlignment="CENTER" textFill="#721c1c">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+               </font>
+            </Button>-->
+            <Button alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="225.0" layoutY="215.0" mnemonicParsing="false" onAction="#exitHandler" prefHeight="43.0" prefWidth="129.0" style="-fx-background-color: white;" text="Exit game" textAlignment="CENTER" textFill="#862222">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="133.0" fitWidth="129.0" layoutX="222.0" layoutY="66.0">
+               <image>
+                  <Image url="@images/win.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="savingSubscene" layoutX="20.0" layoutY="50.0" prefHeight="304.0" prefWidth="561.0" visible="false">
+         <children>
+<!--            <SubScene height="282.0" layoutY="10.0" width="561.0">
+              <root>
+                <Region />
+              </root>
+            </SubScene>-->
+            <ImageView fitHeight="299.0" fitWidth="561.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/bg.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="savingLbl" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="52.0" prefHeight="43.0" prefWidth="401.0" text="Saving game... Please wait." textAlignment="CENTER" textFill="#bf0a0a">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="34.0" />
+               </font>
+            </Label>
+            <Button fx:id="homeBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="162.0" mnemonicParsing="false" onAction="#homeBtnHandler" prefHeight="38.0" prefWidth="92.0" style="-fx-background-color: orange;" text="Go Home" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="waitingSubscene" layoutX="25.0" layoutY="58.0" prefHeight="293.0" prefWidth="570.0" visible="false">
+         <children>
+<!--            <SubScene height="288.0" layoutX="-5.0" width="561.0">
+               <root>
+                  <Region />
+               </root>
+            </SubScene>-->
+            <ImageView fitHeight="293.0" fitWidth="570.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/bg.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="waitingLbl" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="21.0" prefHeight="79.0" prefWidth="521.0" text="Please wait till opponent accepts your request." textAlignment="CENTER" textFill="#4d4a44" wrapText="true">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="okBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="160.0" mnemonicParsing="false" onAction="#okBtnHandler" prefHeight="41.0" prefWidth="80.0" style="-fx-background-color: orange;" text="Ok" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+    
+   </children>
+
+
+</AnchorPane>

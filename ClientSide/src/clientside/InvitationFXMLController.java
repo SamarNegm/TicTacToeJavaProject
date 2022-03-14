@@ -38,7 +38,8 @@ public class InvitationFXMLController implements Initializable {
     
     @FXML
     private void startGameBtnHandler(ActionEvent event){
-        ClientHandler.changeScene("Multigame");
+       // ClientHandler.changeScene("Multigame");
+       ClientHandler.changeScene("mainBoared");
     }
     
     @FXML

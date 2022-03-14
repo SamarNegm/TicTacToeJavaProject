@@ -16,6 +16,7 @@ import clientside.NewgameFXMLController;
 //import clientside.PlayingModeFXMLController;
 import clientside.StartFXMLController;
 import clientside.InvitationFXMLController;
+import clientside.MainBoaredController;
 import clientside.MultigameFXMLController;
 import clientside.mainBoardWithComputerBase;
 import java.io.DataInputStream;
@@ -52,7 +53,8 @@ public class ClientHandler {
     private static InviteFXMLController Invitectrl;
 //    private static PlayingModeFXMLController Playmodectrl;
     private static InvitationFXMLController invitationCtrl;
-    private static MultigameFXMLController multigameCtrl;
+    //private static MultigameFXMLController multigameCtrl;
+     private static MainBoaredController multigameCtrl;
     private static ObservableList<String> name = FXCollections.observableArrayList();
     private static ObservableList<String> status = FXCollections.observableArrayList();
     private static ObservableList<String> score = FXCollections.observableArrayList();
@@ -299,7 +301,10 @@ public class ClientHandler {
         invitationCtrl = ctrl;
     }
 
-    public static void setMultigameCtrl(MultigameFXMLController ctrl) {
+//    public static void setMultigameCtrl(MultigameFXMLController ctrl) {
+//        multigameCtrl = ctrl;
+//    }
+  public static void setMultigameCtrl(MainBoaredController ctrl) {
         multigameCtrl = ctrl;
     }
 
@@ -619,7 +624,7 @@ public class ClientHandler {
                     });
 
                 }
-                changeScene("Multigame");
+                changeScene("mainBoared");
 
             }
         } else {
@@ -773,11 +778,13 @@ public class ClientHandler {
             isLoaded = true;
             if (player.getInvited()) {
                 Platform.runLater(() -> {
-                    changeScene("Multigame");
+                 //   changeScene("Multigame");
+                 changeScene("mainBoared");
                 });
             } else {
                 Platform.runLater(() -> {
-                    changeScene("Multigame");
+                   // changeScene("Multigame");
+                    changeScene("mainBoared");
                 });
             }
         }

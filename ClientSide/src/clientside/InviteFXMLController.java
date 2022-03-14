@@ -78,7 +78,8 @@ public class InviteFXMLController implements Initializable {
     @FXML
     private void okBtnHandler(ActionEvent event){
         if(ClientHandler.getGameAccepted()){
-            ClientHandler.changeScene("Multigame");
+          //  ClientHandler.changeScene("Multigame");
+           ClientHandler.changeScene("mainBoared");
         }
         else{
             waitingSubscene.setVisible(false);
