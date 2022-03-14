@@ -13,60 +13,76 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #aad2d8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.StartFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #99c5d3;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.StartFXMLController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="newbtn" layoutX="90.0" layoutY="289.0" mnemonicParsing="false" onMouseReleased="#newgameHandler" prefHeight="41.0" prefWidth="142.0" style="-fx-background-color: #363e48;" text="New Game" textFill="WHITE">
+      <Button fx:id="newbtn" layoutX="322.0" layoutY="263.0" mnemonicParsing="false" onMouseReleased="#newgameHandler" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="New Game" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       
-      <Button fx:id="loadbtn" layoutX="90.0" layoutY="349.0" mnemonicParsing="false" onMouseReleased="#loadgameHandler" prefHeight="41.0" prefWidth="142.0" style="-fx-background-color: #363e48;" text="Load Game" textFill="WHITE">
+      <Button fx:id="loadbtn" layoutX="322.0" layoutY="339.0" mnemonicParsing="false" onMouseReleased="#loadgameHandler" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Load Game" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
       
-      <Button fx:id="exitbtn" layoutX="90.0" layoutY="408.0" mnemonicParsing="false" onMouseReleased="#exitHandler" prefHeight="41.0" prefWidth="142.0" style="-fx-background-color: #363e48;" text="Exit" textFill="WHITE">
+      <Button fx:id="exitbtn" layoutX="322.0" layoutY="412.0" mnemonicParsing="false" onMouseReleased="#exitHandler" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Exit" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
          </font>
+         <effect>
+            <DropShadow />
+         </effect>
       </Button>
-      <Text layoutX="370.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Player         Status     Score" wrappingWidth="213.50000584870577">
+      <Text fill="#f8f4f4" layoutX="7.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Player         Status     Score" wrappingWidth="213.50000584870577">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f7bda00" height="357.0" layoutX="363.0" layoutY="124.0" stroke="#1b0c46" strokeType="INSIDE" strokeWidth="2.0" width="227.0" />
-      <Line endX="235.0" endY="421.5" layoutX="233.0" layoutY="57.0" startX="235.0" startY="68.0" stroke="#10054a" strokeWidth="2.0" />
-      <Line endX="264.0" endY="405.5" layoutX="271.0" layoutY="74.0" startX="264.0" startY="51.0" stroke="#0a0946" strokeWidth="2.0" />
-      <ListView fx:id="playerList" layoutX="365.0" layoutY="153.0" mouseTransparent="true" prefHeight="326.0" prefWidth="102.0" />
-      <ListView fx:id="statusList" layoutX="469.0" layoutY="153.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="65.0" />
-      <ListView fx:id="scoreList" layoutX="536.0" layoutY="153.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="52.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="357.0" layoutY="137.0" stroke="#8eeeed" strokeType="INSIDE" strokeWidth="2.0" width="227.0">
+         <effect>
+            <DropShadow color="#ebbcbc" height="0.0" radius="0.0" width="0.0">
+               <input>
+                  <DropShadow />
+               </input>
+            </DropShadow>
+         </effect></Rectangle>
+      <Line endX="235.0" endY="421.5" layoutX="-130.0" layoutY="70.0" startX="235.0" startY="68.0" stroke="#99c5d3" strokeWidth="2.0" />
+      <Line endX="264.0" endY="405.5" layoutX="-92.0" layoutY="87.0" startX="264.0" startY="51.0" stroke="#99c5d3" strokeWidth="2.0" />
+      <ListView fx:id="playerList" layoutX="2.0" layoutY="166.0" mouseTransparent="true" prefHeight="326.0" prefWidth="102.0" />
+      <ListView fx:id="statusList" layoutX="106.0" layoutY="166.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="65.0" />
+      <ListView fx:id="scoreList" layoutX="173.0" layoutY="166.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="52.0">
          <effect>
             <Blend />
          </effect>
       </ListView>
-      <Line endX="108.0" layoutX="481.0" layoutY="153.0" startX="-116.25" stroke="#0e0932" strokeWidth="2.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aad2d8" height="78.0" layoutX="363.0" layoutY="27.0" stroke="#292845" strokeLineCap="ROUND" strokeType="INSIDE" width="227.0">
+      <Line endX="108.0" layoutX="118.0" layoutY="166.0" startX="-116.25" stroke="#99c5d3" strokeWidth="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#013333" height="117.0" layoutX="227.0" layoutY="3.0" stroke="#013333" strokeLineCap="ROUND" strokeType="INSIDE" width="266.0">
          <effect>
-            <DropShadow color="#192083" />
+            <DropShadow color="#013333" />
          </effect>
       </Rectangle>
-      <Label fx:id="userName" alignment="CENTER" layoutX="364.0" layoutY="25.0" prefHeight="41.0" prefWidth="226.0" textFill="#171e46" textOverrun="CLIP">
+      <Label fx:id="userName" alignment="CENTER" layoutX="240.0" layoutY="14.0" prefHeight="41.0" prefWidth="239.0" textFill="WHITE" textOverrun="CLIP">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="userScore" alignment="CENTER" layoutX="363.0" layoutY="55.0" prefHeight="41.0" prefWidth="226.0" textAlignment="CENTER" textFill="#a43838" textOverrun="CLIP">
+      <Label fx:id="userScore" alignment="CENTER" layoutX="227.0" layoutY="62.0" prefHeight="41.0" prefWidth="266.0" textAlignment="CENTER" textFill="#fdffff" textOverrun="CLIP">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font>
       </Label>
-      <ImageView fitHeight="169.0" fitWidth="352.0" layoutX="-10.0" layoutY="70.0">
+      <ImageView fitHeight="127.0" fitWidth="155.0" layoutY="9.0">
          <image>
-            <Image url="@images/play.png" />
+            <Image url="@../Images/a03a56f4feaa8eb194117b5d0d926109.gif" />
          </image>
       </ImageView>
     </children>

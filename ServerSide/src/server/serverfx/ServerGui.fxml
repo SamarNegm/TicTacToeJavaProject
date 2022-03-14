@@ -42,7 +42,7 @@
       <children>
          <ImageView fitHeight="42.0" fitWidth="66.0" layoutX="292.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@logo.png" />
+               <Image url="@xo.png" />
             </image>
          </ImageView>
          <Text fill="#99c5d3" layoutX="37.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic-Tac-toe" wrappingWidth="263.1328125">
