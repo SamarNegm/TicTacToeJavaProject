@@ -16,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #aad2d8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.LoadgameFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #aad2d8;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.LoadgameFXMLController">
     <children>
-      <ImageView fitHeight="154.0" fitWidth="320.0" layoutX="16.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="154.0" fitWidth="320.0" layoutX="68.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/play.png" />
+            <Image url="@../Images/giphy.gif" />
          </image>
       </ImageView>
       <ComboBox fx:id="gamesComboBox" layoutX="65.0" layoutY="320.0" prefHeight="25.0" prefWidth="245.0" promptText="Available games" style="-fx-background-color: #FFCFCF;" />
@@ -44,9 +44,12 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="18.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f7bda00" height="357.0" layoutX="363.0" layoutY="123.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="227.0" />
-      <Line endX="235.0" endY="421.5" layoutX="233.0" layoutY="56.0" startX="235.0" startY="68.0" strokeWidth="2.0" />
-      <Line endX="264.0" endY="405.5" layoutX="271.0" layoutY="73.0" startX="264.0" startY="51.0" strokeWidth="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f7bda00" height="357.0" layoutX="363.0" layoutY="123.0" stroke="#99c5d3" strokeType="INSIDE" strokeWidth="2.0" width="227.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
+      <Line endX="235.0" endY="421.5" layoutX="233.0" layoutY="56.0" startX="235.0" startY="68.0" stroke="#99c5d3" strokeWidth="2.0" />
+      <Line endX="264.0" endY="405.5" layoutX="271.0" layoutY="73.0" startX="264.0" startY="51.0" stroke="#99c5d3" strokeWidth="2.0" />
       <ListView fx:id="playerList" layoutX="365.0" layoutY="152.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="102.0" />
       <ListView fx:id="statusList" layoutX="469.0" layoutY="152.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="65.0" />
       <ListView fx:id="scoreList" layoutX="536.0" layoutY="152.0" mouseTransparent="true" pickOnBounds="false" prefHeight="326.0" prefWidth="52.0">
@@ -54,10 +57,10 @@
             <Blend />
          </effect>
       </ListView>
-      <Line endX="108.0" layoutX="481.0" layoutY="152.0" startX="-116.25" strokeWidth="2.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4dfe1" height="78.0" layoutX="362.0" layoutY="24.0" stroke="#210a4d" strokeLineCap="ROUND" strokeType="INSIDE" width="227.0">
+      <Line endX="108.0" layoutX="481.0" layoutY="152.0" startX="-116.25" stroke="#99c5d3" strokeWidth="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4dfe1" height="78.0" layoutX="362.0" layoutY="24.0" stroke="#99c5d3" strokeLineCap="ROUND" strokeType="INSIDE" width="227.0">
          <effect>
-            <DropShadow color="#120f4d" />
+            <DropShadow color="#eeeef2" />
          </effect>
       </Rectangle>
       <Label fx:id="userName" alignment="CENTER" layoutX="363.0" layoutY="24.0" prefHeight="41.0" prefWidth="227.0" textFill="#381775" textOverrun="CLIP">
@@ -82,22 +85,30 @@
                   <Image url="@images/playerbg.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="waitingLbl" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="53.0" prefHeight="60.0" prefWidth="245.0" text="Please wait for opponent response." textAlignment="CENTER" textFill="RED">
+            <Label fx:id="waitingLbl" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="28.0" prefHeight="60.0" prefWidth="245.0" text="Please wait for opponent response." textAlignment="CENTER" textFill="RED">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="proceedBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="110.0" mnemonicParsing="false" onMouseReleased="#proceedHandler" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #363d7d;" text="Ok" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="proceedBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="138.0" mnemonicParsing="false" onMouseReleased="#proceedHandler" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Ok" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="17.0" />
                </font>
             </Button>
-            <Label fx:id="rejectionLabel" alignment="CENTER" layoutX="53.0" layoutY="70.0" prefHeight="25.0" prefWidth="245.0" text="Opponent rejected your request." textAlignment="CENTER" textFill="#354572">
+            <Label fx:id="rejectionLabel" alignment="CENTER" layoutX="28.0" layoutY="70.0" prefHeight="25.0" prefWidth="245.0" text="Opponent rejected your request." textAlignment="CENTER" textFill="#354572">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="17.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <Text fill="#fcf8f8" layoutX="70.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tic Tac Toe" wrappingWidth="182.99999165534973">
+         <font>
+            <Font name="Bernard MT Condensed" size="39.0" />
+         </font>
+         <effect>
+            <DropShadow color="#1ddd70" />
+         </effect>
+      </Text>
     </children>
 </AnchorPane>

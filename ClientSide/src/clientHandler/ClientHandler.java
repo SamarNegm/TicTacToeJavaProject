@@ -17,7 +17,6 @@ import clientside.NewgameFXMLController;
 import clientside.StartFXMLController;
 import clientside.InvitationFXMLController;
 import clientside.MainBoaredController;
-import clientside.MultigameFXMLController;
 import clientside.mainBoardWithComputerBase;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

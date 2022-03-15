@@ -127,7 +127,7 @@ public class MainBoaredController implements Initializable {
                            
                         ClientHandler.gameEndedRequest(player1Label.getText(), isDraw, "");
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(MultigameFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println(ex);
                     }
                 }
 
@@ -144,8 +144,8 @@ public class MainBoaredController implements Initializable {
                            
                         ClientHandler.gameEndedRequest(player2Label.getText(), isDraw, "");
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(MultigameFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                        System.out.println(ex);
+                        }
                 }
                 winnerLabel.setText(player2Label.getText() + " won!");
                 setSceneVisibility(true);
@@ -162,7 +162,7 @@ public class MainBoaredController implements Initializable {
                         Thread.sleep(300);   
                         ClientHandler.gameEndedRequest(player1Label.getText(), isDraw, "");
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(MultigameFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println(ex);
                     }
                 }
              }
