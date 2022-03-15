@@ -1,13 +1,1 @@
-[ Tue Mar 15 00:19:43 EET 2022 ] :  Server is Running
-[ Tue Mar 15 00:20:04 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Tue Mar 15 00:20:24 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Tue Mar 15 00:20:38 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
-[ Tue Mar 15 00:20:40 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ samar] vs [ sam ]
-[ Tue Mar 15 00:21:37 EET 2022 ] :  [PlayerHandler class]: Player [ samar ] has loggedout
-[ Tue Mar 15 00:21:40 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Tue Mar 15 00:23:19 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Tue Mar 15 00:23:38 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Tue Mar 15 00:23:51 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
-[ Tue Mar 15 00:23:52 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ sam] vs [ samar ]
-[ Tue Mar 15 00:24:16 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Tue Mar 15 00:24:19 EET 2022 ] :  [PlayerHandler class]: Player [ samar ] has loggedout
+[ Tue Mar 15 23:10:58 EET 2022 ] :  Server is Running
