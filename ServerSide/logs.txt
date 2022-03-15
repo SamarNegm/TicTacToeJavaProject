@@ -1,1 +1,4 @@
 [ Tue Mar 15 23:10:58 EET 2022 ] :  Server is Running
+[ Tue Mar 15 23:15:11 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Tue Mar 15 23:15:52 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Tue Mar 15 23:15:53 EET 2022 ] :  [PlayerHandler class]: Player has dropped connections
