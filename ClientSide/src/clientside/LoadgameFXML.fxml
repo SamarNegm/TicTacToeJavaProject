@@ -34,10 +34,13 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="backbtn" layoutX="19.0" layoutY="459.0" mnemonicParsing="false" onMousePressed="#backHandler" style="-fx-background-color: #CBF0EB;" text="back">
+      <Button fx:id="backbtn" layoutX="19.0" layoutY="449.0" mnemonicParsing="false" onMousePressed="#backHandler" prefHeight="41.0" prefWidth="76.0" style="-fx-background-color: #6ac08f;" text="back">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
          </font>
+         <effect>
+            <DropShadow color="#fcf6f6" />
+         </effect>
       </Button>
       <Text layoutX="379.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Player       Status     Score" wrappingWidth="211.50000584870577">
          <font>
@@ -90,7 +93,7 @@
                   <Font name="Tw Cen MT Condensed Extra Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="proceedBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="138.0" mnemonicParsing="false" onMouseReleased="#proceedHandler" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Ok" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="proceedBtn" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="128.0" mnemonicParsing="false" onMouseReleased="#proceedHandler" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Ok" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="17.0" />
                </font>

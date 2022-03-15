@@ -24,15 +24,18 @@
          </image>
       </ImageView>
       <ComboBox fx:id="inviteBox" layoutX="120.0" layoutY="315.0" prefWidth="150.0" style="-fx-background-color: #FFCFCF;" />
-      <Button fx:id="invite" layoutX="167.0" layoutY="348.0" mnemonicParsing="false" onMouseReleased="#inviteHandler" style="-fx-background-color: #CBF0EB;" text="Invite">
+      <Button fx:id="invite" layoutX="167.0" layoutY="348.0" mnemonicParsing="false" onMouseReleased="#inviteHandler" style="-fx-background-color: #6ac08f; -fx-background-radius: 30;" text="Invite">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="19.0" layoutY="459.0" mnemonicParsing="false" onMouseReleased="#backHandler" style="-fx-background-color: #CBF0EB;" text="back">
+      <Button fx:id="back" layoutX="19.0" layoutY="449.0" mnemonicParsing="false" onMouseReleased="#backHandler" prefHeight="42.0" prefWidth="111.0" style="-fx-background-color: #6ac08f; -fx-background-radius: 30;" text="back" textFill="#f5f4f4">
          <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
+            <Font name="Tw Cen MT Condensed Extra Bold" size="24.0" />
          </font>
+         <effect>
+            <DropShadow color="WHITE" />
+         </effect>
       </Button>
       <Text fill="#f5f2f2" layoutX="381.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="     Player       Status     Score" wrappingWidth="211.50000584870577">
          <font>
@@ -73,7 +76,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="28.0" />
          </font>
       </Text>
-      <AnchorPane fx:id="waitingSubscene" layoutX="19.0" layoutY="241.0" prefHeight="251.0" prefWidth="301.0">
+      <AnchorPane fx:id="waitingSubscene" layoutX="37.0" layoutY="238.0" prefHeight="251.0" prefWidth="301.0">
          <children>
             <SubScene height="251.0" layoutX="4.0" width="294.0">
               <root>
