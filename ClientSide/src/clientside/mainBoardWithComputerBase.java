@@ -20,9 +20,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import clientHandler.ClientHandler;
 
 public class mainBoardWithComputerBase extends AnchorPane {
-
+    protected final Button buttonExit;
     private static Stage window;
     protected final ImageView borderView;
     protected final ImageView playerImage1;
@@ -46,11 +47,13 @@ public class mainBoardWithComputerBase extends AnchorPane {
     protected final Button button7;
     protected final ImageView button7Image;
     protected final Button button8;
+    
     protected final ImageView button8Image;
     protected final ImageView xInTitle;
     protected final ImageView oInTitle;
     protected final ImageView robotImage;
     protected final Button playAgain;
+       protected final String name;
     Random rand = new Random();
     int state;
     boolean wins = false;
@@ -84,31 +87,38 @@ public class mainBoardWithComputerBase extends AnchorPane {
             if ("X".equals(arr[myNumbers[a][0]]) && "X".equals(arr[myNumbers[a][2]]) && "X".equals(arr[myNumbers[a][1]])) {
                 text.setText("winner");
                 text0.setText("is");
-                text1.setText("Samar");
+                text1.setText(name);
                 wins = true;
                 buttons.forEach(button -> {
 
                     button.setDisable(true);
                 });
+                try{
+                Thread.sleep(300);
+                } catch (InterruptedException ex) {
+                    
+                }
+                ClientHandler.changeScene("winningOption");
             } //O winner
             else if ("O".equals(arr[myNumbers[a][0]]) && "O".equals(arr[myNumbers[a][2]]) && "O".equals(arr[myNumbers[a][1]])) {
                 text.setText("winner");
                 text0.setText("is");
-                text1.setText("Ommar");
+                text1.setText("Me");
                 wins = true;
                 buttons.forEach(button -> {
 
                     button.setDisable(true);
                 });
+                ClientHandler.changeScene("loseOption");
             } else if (turnCounter > 9) {
                 text.setText("game");
                 text0.setText("is");
                 text1.setText("draw");
                 wins = true;
                 buttons.forEach(button -> {
-
                     button.setDisable(true);
                 });
+                ClientHandler.changeScene("loseOption");
             }
             System.out.println("mytictactoe.mainBoardWithComputerBase.checkIfGameIsOver() " + turnCounter);
         }
@@ -288,7 +298,8 @@ public class mainBoardWithComputerBase extends AnchorPane {
         return hardTurn;
     }
 
-    public mainBoardWithComputerBase(int state1, Stage window) {
+    public mainBoardWithComputerBase(int state1, Stage window,String name) {
+        buttonExit = new Button();
         state = state1;
         borderView = new ImageView();
         playerImage1 = new ImageView();
@@ -318,7 +329,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
         oInTitle = new ImageView();
         robotImage = new ImageView();
         playAgain = new JFXButton();
-
+        this.name=name;
         // int playerTurn = 0;
         //arraylist of all buttons  and imageview in the game
         buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9));
@@ -355,29 +366,31 @@ public class mainBoardWithComputerBase extends AnchorPane {
         playerImage1.setPreserveRatio(true);
         playerImage1.setImage(new Image(getClass().getResource("/Images/plyer2.png").toExternalForm()));
 
-        text.setLayoutX(212.0);
+        text.setLayoutX(130.0);
         text.setLayoutY(57.0);
         text.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text.setStrokeWidth(0.0);
         text.setStyle("-fx-fill: #6ac08f;; -fx-font-size: 25;");
-        text.setText("Samr");
-        text.setWrappingWidth(94.98828125);
+        text.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
+        text.setText(name);
+        text.setWrappingWidth(146.00000429153442);
 
-        text0.setLayoutX(307.0);
-        text0.setLayoutY(60.0);
+        text0.setLayoutX(313.0);
+        text0.setLayoutY(59.0);
         text0.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text0.setStrokeWidth(0.0);
         text0.setStyle("-fx-font-size: 40; -fx-fill: #1db2ca; -fx-font-weight: bold;");
         text0.setText("VS");
         text0.setWrappingWidth(57.09375);
 
-        text1.setLayoutX(383.0);
-        text1.setLayoutY(57.0);
+        text1.setLayoutX(380.0);
+        text1.setLayoutY(54.0);
         text1.setStrokeType(javafx.scene.shape.StrokeType.OUTSIDE);
         text1.setStrokeWidth(0.0);
         text1.setStyle("-fx-fill: #6ac08f;; -fx-font-size: 25;");
+        text1.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         text1.setText("Me");
-        text1.setWrappingWidth(94.98828125);
+        text1.setWrappingWidth(156.99999527446926);
 
         button1.setLayoutX(152.0);
         button1.setLayoutY(114.0);
@@ -480,16 +493,16 @@ public class mainBoardWithComputerBase extends AnchorPane {
 
         xInTitle.setFitHeight(37.0);
         xInTitle.setFitWidth(57.0);
-        xInTitle.setLayoutX(152.0);
-        xInTitle.setLayoutY(28.0);
+        xInTitle.setLayoutX(70.0);
+        xInTitle.setLayoutY(25.0);
         xInTitle.setPickOnBounds(true);
         xInTitle.setPreserveRatio(true);
         xInTitle.setImage(new Image(getClass().getResource("/Images/x.png").toExternalForm()));
 
         oInTitle.setFitHeight(62.0);
         oInTitle.setFitWidth(46.0);
-        oInTitle.setLayoutX(485.0);
-        oInTitle.setLayoutY(28.0);
+        oInTitle.setLayoutX(570.0);
+        oInTitle.setLayoutY(25.0);
         oInTitle.setPickOnBounds(true);
         oInTitle.setPreserveRatio(true);
         oInTitle.setImage(new Image(getClass().getResource("/Images/o.png").toExternalForm()));
@@ -501,6 +514,15 @@ public class mainBoardWithComputerBase extends AnchorPane {
         robotImage.setPickOnBounds(true);
         robotImage.setPreserveRatio(true);
         robotImage.setImage(new Image(getClass().getResource("/Images/robot.png").toExternalForm()));
+        
+        
+        buttonExit.setLayoutX(152.0);
+        buttonExit.setLayoutY(431.0);
+        buttonExit.setMnemonicParsing(false);
+        buttonExit.setPrefHeight(40.0);
+        buttonExit.setPrefWidth(128.0);
+        buttonExit.setStyle("-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;");
+        buttonExit.setText("Main ");
 
         playAgain.setLayoutX(576.0);
         playAgain.setLayoutY(440.0);
@@ -512,7 +534,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
             Platform.runLater(() -> {
                 //         Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(""));
 
-                mainBoardWithComputerBase root = new mainBoardWithComputerBase(2, window);
+                mainBoardWithComputerBase root = new mainBoardWithComputerBase(2, window,name);
                 Scene scene = new Scene(root);
                 window.setScene(scene);
                 window.setResizable(false);
@@ -539,6 +561,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
         getChildren().add(oInTitle);
         getChildren().add(robotImage);
         getChildren().add(playAgain);
+        getChildren().add(buttonExit);
 
     }
 }

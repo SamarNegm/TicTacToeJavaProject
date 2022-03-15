@@ -17,7 +17,6 @@ import clientside.NewgameFXMLController;
 import clientside.StartFXMLController;
 import clientside.InvitationFXMLController;
 import clientside.MainBoaredController;
-import clientside.MultigameFXMLController;
 import clientside.mainBoardWithComputerBase;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -207,7 +206,7 @@ public class ClientHandler {
     @FXML
     public static void changeScene(String newScene) {
         if (newScene == "mainBoardWithComputerFXML") {
-            AnchorPane screen = new mainBoardWithComputerBase(2, window);
+            AnchorPane screen = new mainBoardWithComputerBase(2, window,player.getUsername());
             Platform.runLater(() -> {
 
                 Scene scene = new Scene(screen);
