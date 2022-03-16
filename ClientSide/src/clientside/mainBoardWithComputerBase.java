@@ -118,7 +118,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
                 buttons.forEach(button -> {
                     button.setDisable(true);
                 });
-                ClientHandler.changeScene("loseOption");
+                ClientHandler.changeScene("darwOption");
             }
             System.out.println("mytictactoe.mainBoardWithComputerBase.checkIfGameIsOver() " + turnCounter);
         }

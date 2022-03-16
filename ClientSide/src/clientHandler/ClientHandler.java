@@ -13,9 +13,11 @@ import clientside.InviteFXMLController;
 import clientside.LoginFXMLController;
 import clientside.LoadgameFXMLController;
 import clientside.NewgameFXMLController;
+
 //import clientside.PlayingModeFXMLController;
 import clientside.StartFXMLController;
 import clientside.InvitationFXMLController;
+import clientside.LevelsFXMLController;
 import clientside.MainBoaredController;
 import clientside.mainBoardWithComputerBase;
 import java.io.DataInputStream;
@@ -50,6 +52,15 @@ public class ClientHandler {
     private static NewgameFXMLController newgamectrl;
     private static LoadgameFXMLController loadgamectrl;
     private static InviteFXMLController Invitectrl;
+     private static LevelsFXMLController levelsctrl;
+
+    public static LevelsFXMLController getLevelsCtrl() {
+        return levelsctrl;
+    }
+
+    public static void setLevelsCtrl(LevelsFXMLController levelsctrl) {
+        ClientHandler.levelsctrl = levelsctrl;
+    }
 //    private static PlayingModeFXMLController Playmodectrl;
     private static InvitationFXMLController invitationCtrl;
     //private static MultigameFXMLController multigameCtrl;
@@ -229,6 +240,16 @@ public class ClientHandler {
             });
         }
     }
+        public static void changeScene(String newScene,int level){
+         AnchorPane screen = new mainBoardWithComputerBase(level, window,player.getUsername());
+            Platform.runLater(() -> {
+
+                Scene scene = new Scene(screen);
+                window.setScene(scene);
+                window.setResizable(false);
+                window.show();
+            });
+    } 
 
     /**
      * ******************** getters and setters *****************

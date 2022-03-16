@@ -8,8 +8,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" scaleShape="false" style="-fx-background-color: #99c5d3;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.loseOptionFXMLController">
-   <children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" scaleShape="false" style="-fx-background-color: #99c5d3;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="clientside.DarwOptionFXMLController">
+       <children>
       <Button fx:id="tryagain" layoutX="93.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#tryagainHandler" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Try again" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
@@ -20,7 +20,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font>
       </Button>
-      <Text fill="#6ac08f" layoutX="179.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sorry ..  you lost" textAlignment="CENTER" wrappingWidth="241.87109375">
+      <Text fill="#6ac08f" layoutX="160.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="It Is A Draw" textAlignment="CENTER" wrappingWidth="279.87109375">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="57.0" />
          </font>
@@ -28,9 +28,9 @@
             <DropShadow color="#d5f557" />
          </effect>
       </Text>
-      <ImageView fitHeight="174.0" fitWidth="234.0" layoutX="192.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="174.0" fitWidth="234.0" layoutX="197.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/no%20connection.gif" />
+            <Image url="@../Images/a03a56f4feaa8eb194117b5d0d926109.gif" />
          </image>
       </ImageView>
    </children>
