@@ -21,3 +21,6 @@
 [ Wed Mar 16 22:11:35 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
 [ Wed Mar 16 22:14:46 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
 [ Wed Mar 16 22:16:13 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
+[ Wed Mar 16 22:55:03 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Wed Mar 16 22:55:15 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
+[ Wed Mar 16 22:55:38 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout

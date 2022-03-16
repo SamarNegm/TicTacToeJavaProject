@@ -4,57 +4,77 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" scaleShape="false" style="-fx-background-color: #001a33;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.LoginFXMLController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="600.0" scaleShape="false" style="-fx-background-color: #99c5d3;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientside.LoginFXMLController">
    <children>
-      <TextField fx:id="txtUsername" layoutX="46.0" layoutY="342.0" prefHeight="35.0" prefWidth="220.0">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <Label fx:id="passLbl" alignment="BASELINE_CENTER" layoutX="345.0" layoutY="299.0" prefHeight="15.0" prefWidth="203.0" text="Password" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label fx:id="userLbl" alignment="BASELINE_CENTER" layoutX="55.0" layoutY="299.0" prefHeight="15.0" prefWidth="203.0" text="Username" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label fx:id="warningLbl" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="394.0" prefHeight="37.0" prefWidth="588.0" textFill="#ff5500">
+      <AnchorPane layoutX="64.0" layoutY="94.0" prefHeight="430.0" prefWidth="489.0" style="-fx-border-color: ffff; -fx-border-radius: 30;">
+         <children>
+            <TextField fx:id="txtUsername" layoutX="194.0" layoutY="74.0" prefHeight="35.0" prefWidth="220.0" style="-fx-background-radius: 30;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="userLbl" alignment="BASELINE_CENTER" layoutY="74.0" prefHeight="15.0" prefWidth="203.0" text="Username" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="passLbl" alignment="BASELINE_CENTER" layoutY="162.0" prefHeight="15.0" prefWidth="203.0" text="Password" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#f8f6f6" />
+               </effect>
+            </Label>
+            <PasswordField fx:id="txtPassword" layoutX="194.0" layoutY="162.0" prefHeight="35.0" prefWidth="220.0" style="-fx-background-radius: 30;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Button fx:id="btnLogin" layoutX="140.0" layoutY="274.0" mnemonicParsing="false" onMouseReleased="#loginHandler" prefHeight="37.0" prefWidth="247.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Log In" textFill="#fcf3f3">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSignup" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="334.0" mnemonicParsing="false" onMouseReleased="#signupHandler" prefHeight="34.0" prefWidth="247.0" style="-fx-background-color: #6ac08f; -fx-background-radius: 30;" text="Sign Up" textAlignment="CENTER" textFill="#fffafa">
+               <font>
+                  <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+         <effect>
+            <DropShadow color="#fffdfd" />
+         </effect>
+      </AnchorPane>
+      <Label fx:id="warningLbl" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="295.0" prefHeight="37.0" prefWidth="588.0" textFill="#ff5500">
          <font>
             <Font name="Calibri Italic" size="17.0" />
-         </font></Label>
-      <Button fx:id="btnLogin" layoutX="112.0" layoutY="438.0" mnemonicParsing="false" onMouseReleased="#loginHandler" prefHeight="17.0" prefWidth="88.0" text="Log In">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
-         </font></Button>
-      <PasswordField fx:id="txtPassword" layoutX="336.0" layoutY="342.0" prefHeight="35.0" prefWidth="220.0">
-         <font>
-            <Font size="14.0" />
-         </font></PasswordField>
-      <Button fx:id="btnSignup" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="438.0" mnemonicParsing="false" onMouseReleased="#signupHandler" prefHeight="17.0" prefWidth="97.0" text="Sign Up" textAlignment="CENTER">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
-         </font></Button>
-      <Text fill="WHITE" layoutX="320.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Time ?">
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="112.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Time ?">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="#401414" layoutX="111.0" layoutY="67.0" stroke="WHITE" strokeType="OUTSIDE" text="Tic - Tac -Toe" textAlignment="CENTER" wrappingWidth="361.9999913573265">
+      <Text fill="WHITE" layoutX="111.0" layoutY="67.0" stroke="WHITE" strokeType="OUTSIDE" text="Tic - Tac -Toe" textAlignment="CENTER" wrappingWidth="361.9999913573265">
          <font>
-            <Font name="ArnoPro-Bold" size="52.0" />
+            <Font name="Arial Rounded MT Bold" size="52.0" />
          </font>
+         <effect>
+            <DropShadow color="#fffefe" />
+         </effect>
       </Text>
-      <ImageView fitHeight="166.0" fitWidth="166.0" layoutX="209.0" layoutY="103.0">
+      <ImageView fitHeight="54.0" fitWidth="80.0" layoutX="506.0" layoutY="14.0">
          <image>
-            <Image url="@images/xo.png" />
+            <Image url="@../Images/xo.png" />
          </image>
       </ImageView>
    </children>
