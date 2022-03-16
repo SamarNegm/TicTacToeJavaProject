@@ -45,7 +45,7 @@ public class NewgameFXMLController implements Initializable {
 
     @FXML
     private void singleHandler(MouseEvent event) {
-        ClientHandler.changeScene("mainBoardWithComputerFXML");
+        ClientHandler.changeScene("Levels");
     }
 
     @FXML

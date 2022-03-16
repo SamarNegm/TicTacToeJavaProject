@@ -103,7 +103,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
             else if ("O".equals(arr[myNumbers[a][0]]) && "O".equals(arr[myNumbers[a][2]]) && "O".equals(arr[myNumbers[a][1]])) {
                 text.setText("winner");
                 text0.setText("is");
-                text1.setText("Me");
+                text1.setText("Robot");
                 wins = true;
                 buttons.forEach(button -> {
 
@@ -118,7 +118,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
                 buttons.forEach(button -> {
                     button.setDisable(true);
                 });
-                ClientHandler.changeScene("loseOption");
+                ClientHandler.changeScene("darwOption");
             }
             System.out.println("mytictactoe.mainBoardWithComputerBase.checkIfGameIsOver() " + turnCounter);
         }
@@ -389,7 +389,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
         text1.setStrokeWidth(0.0);
         text1.setStyle("-fx-fill: #6ac08f;; -fx-font-size: 25;");
         text1.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
-        text1.setText("Me");
+        text1.setText("Robot");
         text1.setWrappingWidth(156.99999527446926);
 
         button1.setLayoutX(152.0);
@@ -516,13 +516,7 @@ public class mainBoardWithComputerBase extends AnchorPane {
         robotImage.setImage(new Image(getClass().getResource("/Images/robot.png").toExternalForm()));
         
         
-        buttonExit.setLayoutX(152.0);
-        buttonExit.setLayoutY(431.0);
-        buttonExit.setMnemonicParsing(false);
-        buttonExit.setPrefHeight(40.0);
-        buttonExit.setPrefWidth(128.0);
-        buttonExit.setStyle("-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;");
-        buttonExit.setText("Main ");
+
 
         playAgain.setLayoutX(576.0);
         playAgain.setLayoutY(440.0);

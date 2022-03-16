@@ -125,7 +125,6 @@
          </image>
       </ImageView>
       <Button layoutX="576.0" layoutY="440.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;" text="Quit" />
-      <Button layoutX="148.0" layoutY="440.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #6ac08f; -fx-text-fill: ffff; -fx-background-radius: 30; -fx-font-size: 16;" text="Main Menue" />
      
    </children>
 </AnchorPane>
