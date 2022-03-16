@@ -30,9 +30,6 @@
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
                </font>
-               <effect>
-                  <DropShadow color="#f8f6f6" />
-               </effect>
             </Label>
             <PasswordField fx:id="txtPassword" layoutX="194.0" layoutY="162.0" prefHeight="35.0" prefWidth="220.0" style="-fx-background-radius: 30;">
                <font>

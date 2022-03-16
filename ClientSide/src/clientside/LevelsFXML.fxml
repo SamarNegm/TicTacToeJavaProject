@@ -34,9 +34,9 @@
             <DropShadow color="#37e47f" />
          </effect>
       </Text>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="102.0">
+      <ImageView fitHeight="150.0" fitWidth="162.0" layoutX="210.0" layoutY="115.0">
          <image>
-            <Image url="@images/cute-robot%20.gif" />
+            <Image url="@../Images/giphy.gif" />
          </image>
       </ImageView>
    </children>

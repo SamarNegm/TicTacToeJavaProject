@@ -1,26 +1,29 @@
-[ Wed Mar 16 21:14:17 EET 2022 ] :  Server is Running
-[ Wed Mar 16 21:14:46 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 21:15:58 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Wed Mar 16 21:20:41 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 21:21:18 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Wed Mar 16 21:30:29 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 21:33:47 EET 2022 ] :  [AuthenHandler class]:signin rejected: error msg [signedin ]
-[ Wed Mar 16 21:33:54 EET 2022 ] :  [AuthenHandler class]:signin rejected: error msg [fail ]
-[ Wed Mar 16 21:33:59 EET 2022 ] :  [AuthenHandler class]:signin rejected: error msg [signedin ]
-[ Wed Mar 16 21:34:03 EET 2022 ] :  [AuthenHandler class]: Client connection dropped
-[ Wed Mar 16 21:34:09 EET 2022 ] :  [PlayerHandler class]: Player has dropped connections
-[ Wed Mar 16 21:34:28 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 21:44:32 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Wed Mar 16 21:44:58 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 21:45:09 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 21:45:34 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
-[ Wed Mar 16 21:45:39 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ samar] vs [ sam ]
-[ Wed Mar 16 21:46:13 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Wed Mar 16 21:46:14 EET 2022 ] :  [PlayerHandler class]: Player [ samar ] has loggedout
-[ Wed Mar 16 22:05:56 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 22:11:35 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Wed Mar 16 22:14:46 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 22:16:13 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
-[ Wed Mar 16 22:55:03 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
-[ Wed Mar 16 22:55:15 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
-[ Wed Mar 16 22:55:38 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
+[ Thu Mar 17 00:08:57 EET 2022 ] :  Server is Running
+[ Thu Mar 17 00:09:23 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Thu Mar 17 00:09:35 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
+[ Thu Mar 17 00:10:05 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Thu Mar 17 00:10:15 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:10:19 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ sam] vs [ marwa ]
+[ Thu Mar 17 00:10:31 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
+[ Thu Mar 17 00:10:35 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:10:38 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ sam] vs [ marwa ]
+[ Thu Mar 17 00:11:26 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:11:30 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ sam] vs [ marwa ]
+[ Thu Mar 17 00:12:01 EET 2022 ] :  [PlayerHandler class]: Player [ marwa ] has loggedout
+[ Thu Mar 17 00:12:11 EET 2022 ] :  [PlayerHandler class]: Player [ sam ] has loggedout
+[ Thu Mar 17 00:13:10 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Thu Mar 17 00:13:55 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Thu Mar 17 00:14:10 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:14:16 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ marwa] vs [ sam ]
+[ Thu Mar 17 00:14:47 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
+[ Thu Mar 17 00:14:55 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:15:01 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ sam] vs [ marwa ]
+[ Thu Mar 17 00:16:21 EET 2022 ] :  [PlayerHandler class]: Player [ marwa ] has loggedout
+[ Thu Mar 17 00:17:26 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Thu Mar 17 00:17:37 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:17:41 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ sam] vs [ marwa ]
+[ Thu Mar 17 00:18:16 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
+[ Thu Mar 17 00:18:25 EET 2022 ] :  [PlayerHandler class]: Player Request [ invitePlayer] has succeeded
+[ Thu Mar 17 00:18:28 EET 2022 ] :  [GameEstablishHandler class]: Game Invitation Accepted [ marwa] vs [ sam ]
+[ Thu Mar 17 00:18:58 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded
+[ Thu Mar 17 00:19:01 EET 2022 ] :  [PlayerHandler class]: Player Request [ getGames] has succeeded

@@ -84,14 +84,16 @@ public class MainBoaredController implements Initializable {
     private Label waitingLbl;
     @FXML
     private Button okBtn;
-    @FXML
-    private Button mainMenue;
+
     public void setPlayerSympol(char sympol,ImageView imageView)
     {
+
         if(sympol=='X')
           imageView.setImage(new Image(getClass().getResource("/Images/x.png").toExternalForm()));
-        else
+        else if(sympol=='O')
            imageView.setImage(new Image(getClass().getResource("/Images/o.png").toExternalForm())); 
+        else
+              imageView.setImage(null); 
     }
        private void player1Handle(){
         toggleNextMove();
@@ -178,9 +180,7 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell1Handler(MouseEvent event){
-              System.out.println("hiiiiiiiiiiiii11111111 ok");
         if(play && (cell1.getImage()==null)){
-            System.out.println("hiiiiiiiiiiiii11111111");
             setPlayerSympol(player1Value, cell1);
             game.setCell1(player1Value);
             ClientHandler.sendMoveRequest(0, 0);
@@ -191,7 +191,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell2Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok2");
         if(play && (cell2.getImage()==null)){
             setPlayerSympol(player1Value, cell2);
             game.setCell2(player1Value);
@@ -203,7 +202,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell3Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok3");
           if(play && (cell3.getImage()==null)){
             setPlayerSympol(player1Value, cell3);
             game.setCell3(player1Value);
@@ -524,6 +522,7 @@ public class MainBoaredController implements Initializable {
             nextMove = "O";
         }
         ClientHandler.saveGameRequest(nextMove);
+       // ClientHandler.changeScene("start");
     }
       @FXML 
         private void exitHandler(ActionEvent event) {

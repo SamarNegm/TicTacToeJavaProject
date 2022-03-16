@@ -15,23 +15,23 @@
             <Image url="@../Images/a03a56f4feaa8eb194117b5d0d926109.gif" />
          </image>
       </ImageView>
-      <Text fill="#ffe62d" layoutX="137.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="congratulation" textAlignment="CENTER" wrappingWidth="325.87109375">
+      <Text fill="#962332" layoutX="128.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="congratulation," textAlignment="CENTER" wrappingWidth="369.87109375">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="57.0" />
          </font>
          <effect>
-            <DropShadow color="#d5f557" />
+            <DropShadow color="#eceee5" />
          </effect>
       </Text>
-      <Text fill="#ffe62d" layoutX="137.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="you win" textAlignment="CENTER" wrappingWidth="325.87109375">
+      <Text fill="#962332" layoutX="137.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="you won" textAlignment="CENTER" wrappingWidth="325.87109375">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="57.0" />
          </font>
          <effect>
-            <DropShadow color="#d5f557" />
+            <DropShadow color="#eceee5" />
          </effect>
       </Text>
-      <Button fx:id="tryagain" layoutX="93.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#tryagainHandler" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="play again" textFill="WHITE">
+      <Button fx:id="tryagain" layoutX="93.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#tryagainHandler" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #6ac08f; -fx-background-radius: 30;" text="play again" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font>
@@ -39,7 +39,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button fx:id="tryagain1" layoutX="406.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#tryagain1Handler" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #013333; -fx-background-radius: 30;" text="Exit" textFill="#e8e8e8">
+      <Button fx:id="tryagain1" layoutX="406.0" layoutY="388.0" mnemonicParsing="false" onMouseReleased="#tryagain1Handler" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #211e24; -fx-background-radius: 30;" text="Exit" textFill="#e8e8e8">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="19.0" />
          </font>
