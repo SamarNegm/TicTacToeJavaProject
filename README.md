@@ -23,7 +23,7 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 
 <!-- TOC -->
 - [Main Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#%EF%B8%8F-main-features)
-- [Game Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md.md#-Game Features)
+- [Game Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-game-features)
 - [Demo](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-demo)
 - [How To Use](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-how-to-use)
     - [Database Setup](#database-setup)
@@ -57,7 +57,7 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 - User-friendly GUI.
 
 ---
-## 💡 Game Features
+## 💡 Game-Features
 
 - A score metrics for each player that is calculated upon winning or losing.
 - Play with your friends in multiplayer mode (online).
@@ -69,7 +69,7 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 
 ### Server-side Interface
 
-![server gui gif](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md/demos/server.png)
+![server gui](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md/demos/server.png)
 
 You can start and stop the server from the GUI, as well as view the server logs, the database and a live players list.
 
