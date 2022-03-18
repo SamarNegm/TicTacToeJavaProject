@@ -57,9 +57,8 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 
 ### Client-Side
 
-- Play in single mode vs. computer in two levels of difficulty, implemented using minimax algorithm.
+- Play in single mode vs. computer in two levels of difficulty
 - A live list of the status and score of other players in the game.
-- Chat with the opponent inside the game.
 - Save the game to continue playing it later.
 - User-friendly GUI.
 
