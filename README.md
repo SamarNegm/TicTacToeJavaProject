@@ -23,7 +23,7 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 
 <!-- TOC -->
 - [Main Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#%EF%B8%8F-main-features)
-- [Game Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md.md#-game-features)
+- [Game Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md.md#-Game Features)
 - [Demo](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-demo)
 - [How To Use](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-how-to-use)
     - [Database Setup](#database-setup)
