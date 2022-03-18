@@ -98,7 +98,7 @@ For the full demo video refer to the following link: [Demo Video](https://github
 Clone the project in your working directory.
 
 ```bash
-git clone https://github.com/ahmedmumdouh/TicTacToe-Java-Project.git
+https://github.com/SamarNegm/TicTacToeJavaProject.git
 ```
 
 or download the zipped file and unzip it in your working directory.
