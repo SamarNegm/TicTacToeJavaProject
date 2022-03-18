@@ -153,7 +153,7 @@ Using The executable file: Double-click the ClientSide.jar file found in the [bi
 ---
 ## 👨‍💻 About Us
 
-We are a team of software enginnering students at ITI intake 41, Smart Village branch, Open-source application track.
+We are a team of software enginnering students at ITI intake 42, Menofia branch, Open-source application track.
 
 ### 📞 Contacts
 
