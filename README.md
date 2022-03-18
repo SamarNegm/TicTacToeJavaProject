@@ -12,7 +12,7 @@ While the game of tic-tac-toe is really old, dating back to ancient Egyptians at
 ---
 ## Overview
 
-![single player demo](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/demos/singleGame.gif)
+![single player demo](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/tic-tac-toe.mkv)
 
 This project is a simple Tic-Tac-Toe online game developed as a final project for the java course.
 The game is developed using java and javafx utilizing socket programming, multi-threading
@@ -22,17 +22,17 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 ## Table of Contents
 
 <!-- TOC -->
-- [Main Features](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/README.md#%EF%B8%8F-main-features)
-- [Game Features](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/README.md#-game-features)
-- [Demo](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/README.md#-demo)
-- [How To Use](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/README.md#-how-to-use)
+- [Main Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#%EF%B8%8F-main-features)
+- [Game Features](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md.md#-game-features)
+- [Demo](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-demo)
+- [How To Use](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-how-to-use)
     - [Database Setup](#database-setup)
     - [Run The Server](#run-the-server)
     - [Run The Client](#run-the-client)
 - [Dependencies](#dependencies)
 - [Limitations](#limitations)
 - [Possible Improvements](#possible-improvements)
-- [About Us](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/README.md#-about-us)
+- [About Us](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md#-about-us)
 
 <!-- /TOC -->
 
@@ -69,7 +69,7 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 
 ### Server-side Interface
 
-![server gui gif](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/demos/server.gif)
+![server gui gif](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md/demos/server.png)
 
 You can start and stop the server from the GUI, as well as view the server logs, the database and a live players list.
 
