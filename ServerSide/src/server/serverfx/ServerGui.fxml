@@ -59,7 +59,7 @@
       <children>
          <AnchorPane layoutX="21.0" layoutY="100.0" prefHeight="354.0" prefWidth="335.0" style="-fx-border-color: #89ecf5; -fx-border-radius: 30;">
             <children>
-               <Text fill="#99c5d3" layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Abd Elfattah" wrappingWidth="263.1328125">
+               <Text fill="#99c5d3" layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Abdelfattah" wrappingWidth="263.1328125">
                   <effect>
                      <DropShadow color="#7fd4eb" />
                   </effect>
