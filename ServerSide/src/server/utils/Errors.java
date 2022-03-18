@@ -5,7 +5,10 @@
 package server.utils;
 
 
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public class Errors {
     
     public static final String INVALID = "invalid";

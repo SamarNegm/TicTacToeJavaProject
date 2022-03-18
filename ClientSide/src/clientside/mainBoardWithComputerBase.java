@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clientside;
 
 import java.net.URL;
@@ -22,6 +27,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import clientHandler.ClientHandler;
 
+/**
+ *
+ * @author MohamedShehata
+ */
 public class mainBoardWithComputerBase extends AnchorPane {
     protected final Button buttonExit;
     private static Stage window;
@@ -74,7 +83,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
             if ("".equals(arr[index])) {
                 System.out.println("we are in button " + index);
                 setPlayerSymbol(button, index);
-                //button.setDisable(true);
                 checkIfGameIsOver();
             }
         });
@@ -161,7 +169,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
     private void computerTurn(String turn) {
 
         buttons.forEach(button -> {
-            //setupButton(button,buttons.indexOf(button));
             button.setDisable(true);
 
         });
@@ -180,7 +187,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
                         imageView.get(genrateRandom).setImage(new Image(getClass().getResource("/Images/x.png").toExternalForm()));
                         playerTurn = false;
                         arr[genrateRandom] = "X";
-                        //checkIfGameIsOver();
 
                     } else if ("O".equals(turn)) {
 
@@ -225,7 +231,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
 
         }
         buttons.forEach(button -> {
-            //setupButton(button,buttons.indexOf(button));
             button.setDisable(false);
         });
 
@@ -330,7 +335,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         robotImage = new ImageView();
         playAgain = new JFXButton();
         this.name=name;
-        // int playerTurn = 0;
         //arraylist of all buttons  and imageview in the game
         buttons = new ArrayList<>(Arrays.asList(button1, button2, button3, button4, button5, button6, button7, button8, button9));
         imageView = new ArrayList<>(Arrays.asList(button1Image, button2Image, button3Image, button4Image, button5Image, button6Image, button7Image, button8Image, button9Image));
@@ -400,7 +404,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button1Image.setFitWidth(78.0);
         button1Image.setPickOnBounds(true);
         button1Image.setPreserveRatio(true);
-        //button1Image.setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
         button1.setGraphic(button1Image);
 
         button2.setLayoutX(258.0);
@@ -411,7 +414,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button2Image.setFitWidth(83.0);
         button2Image.setPickOnBounds(true);
         button2Image.setPreserveRatio(true);
-        //button2Image.setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
         button2.setGraphic(button2Image);
 
         button5.setLayoutX(258.0);
@@ -422,7 +424,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button5Image.setFitWidth(83.0);
         button5Image.setPickOnBounds(true);
         button5Image.setPreserveRatio(true);
-        //button5Image.setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
         button5.setGraphic(button5Image);
 
         button3.setLayoutX(378.0);
@@ -433,7 +434,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button3Image.setFitWidth(86.0);
         button3Image.setPickOnBounds(true);
         button3Image.setPreserveRatio(true);
-        //button3Image.setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
         button3.setGraphic(button3Image);
 
         button9.setLayoutX(378.0);
@@ -444,7 +444,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button9Image.setFitWidth(79.0);
         button9Image.setPickOnBounds(true);
         button9Image.setPreserveRatio(true);
-        //button9Image.setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
         button9.setGraphic(button9Image);
 
         button6.setLayoutX(378.0);
@@ -455,7 +454,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button6Image.setFitWidth(78.0);
         button6Image.setPickOnBounds(true);
         button6Image.setPreserveRatio(true);
-        //button6Image.setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
         button6.setGraphic(button6Image);
 
         button4.setLayoutX(152.0);
@@ -466,7 +464,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button4Image.setFitWidth(81.0);
         button4Image.setPickOnBounds(true);
         button4Image.setPreserveRatio(true);
-        //button4Image.setImage(new Image(getClass().getResource("Images/x.png").toExternalForm()));
         button4.setGraphic(button4Image);
 
         button7.setLayoutX(152.0);
@@ -477,7 +474,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button7Image.setFitWidth(78.0);
         button7Image.setPickOnBounds(true);
         button7Image.setPreserveRatio(true);
-        //button7Image.setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
         button7.setGraphic(button7Image);
 
         button8.setLayoutX(258.0);
@@ -488,7 +484,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
         button8Image.setFitWidth(88.0);
         button8Image.setPickOnBounds(true);
         button8Image.setPreserveRatio(true);
-        //button8Image.setImage(new Image(getClass().getResource("Images/o.png").toExternalForm()));
         button8.setGraphic(button8Image);
 
         xInTitle.setFitHeight(37.0);
@@ -526,7 +521,6 @@ public class mainBoardWithComputerBase extends AnchorPane {
             System.out.println("again");
 
             Platform.runLater(() -> {
-                //         Parent root = FXMLLoader.load(MyTicTacToe.class.getResource(""));
 
                 mainBoardWithComputerBase root = new mainBoardWithComputerBase(2, window,name);
                 Scene scene = new Scene(root);

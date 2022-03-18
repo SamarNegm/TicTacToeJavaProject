@@ -23,7 +23,10 @@ import server.DBOperations;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
-
+/**
+ *
+ * @author Marwa
+ */
 public class AuthenHandler extends Thread {
     
     private Socket socket;

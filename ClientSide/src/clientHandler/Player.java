@@ -1,9 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clientHandler;
 
 import java.util.regex.*;
 import org.json.simple.JSONObject;
 
-// Player class
+/**
+ *
+ * @author Samar
+ */
 public class Player {
 
     private int id;
@@ -80,7 +88,7 @@ public class Player {
         return score;
     }
 
-    // User validation with regex
+    // User validation 
     public boolean checkUsername(String username) {
         boolean check = true;
         if (username.equals("")) {
@@ -90,16 +98,11 @@ public class Player {
         } else {
             check = Pattern.matches("^[a-zA-Z1-9-_]*$", username);
         }
-        // else {
-        // check = Pattern.matches("^[A-Za-z][A-Za-z0-9_]{7,21}$", username);
-        // // User should start with an alphabet [A-Za-z], All other characters can be
-        // // alphabets.
-        // // User contains numbers or an underscore [A-Za-z0-9_].
-        // }
+       
         return check;
     }
 
-    // Password validation with regex
+    // Password validation 
     public boolean checkPassword(String password) {
         boolean check = true;
         if (password.equals("")) {
@@ -108,12 +111,7 @@ public class Player {
         if (password.length() < 6 || password.length() > 20) {
             check = false;
         }
-        // else {
-        // check = Pattern.matches("^(?=.*\\d).{4,8}$", password);
-        // // Password must be between 4 and 8 digits long and include at least one
-        // numeric
-        // // digit.
-        // }
+    
         return check;
     }
 

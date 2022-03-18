@@ -19,7 +19,10 @@ import org.json.simple.JSONObject;
 
 import java.io.IOException;
 
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public class UpdatesHandler extends Thread{
     
     private Vector <Player> playerVect;

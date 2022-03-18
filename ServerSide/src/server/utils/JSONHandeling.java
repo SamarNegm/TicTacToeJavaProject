@@ -12,8 +12,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import database.playerinfo.Player;
-
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public abstract class JSONHandeling {
     
     private static JSONObject jsonObj;

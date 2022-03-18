@@ -13,8 +13,6 @@ import clientside.InviteFXMLController;
 import clientside.LoginFXMLController;
 import clientside.LoadgameFXMLController;
 import clientside.NewgameFXMLController;
-
-//import clientside.PlayingModeFXMLController;
 import clientside.StartFXMLController;
 import clientside.InvitationFXMLController;
 import clientside.LevelsFXMLController;
@@ -38,7 +36,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public class ClientHandler {
 
     private static Socket clientSocket;
@@ -181,9 +182,6 @@ public class ClientHandler {
                 case "gameStarted":
                     GameStartedResponse(jsonMsg);
                     break;
-//                case "sendChat":
-//                    sendChatResponse(jsonMsg);
-//                    break;
                 case "gameEnded":
                     gameEndedResponse(jsonMsg);
                     break;
@@ -216,16 +214,21 @@ public class ClientHandler {
      */
     @FXML
     public static void changeScene(String newScene) {
-        if (newScene == "mainBoardWithComputerFXML") {
-            AnchorPane screen = new mainBoardWithComputerBase(2, window,player.getUsername());
-            Platform.runLater(() -> {
+  
+        if (newScene=="mainBoardWithComputer")
+        {
+                   Platform.runLater(() -> {
 
-                Scene scene = new Scene(screen);
+                mainBoardWithComputerBase root = new mainBoardWithComputerBase(2, window,player.getUsername());
+                Scene scene = new Scene(root);
                 window.setScene(scene);
                 window.setResizable(false);
                 window.show();
+
             });
-        } else {
+            
+        }
+        else{
             setCurrentScene(newScene);
             Platform.runLater(() -> {
                 try {
@@ -314,16 +317,11 @@ public class ClientHandler {
         Invitectrl = ctrl;
     }
 
-//    public static void setPlaymodeCtrl(PlayingModeFXMLController ctrl) {
-//        Playmodectrl = ctrl;
-//    }
+
     public static void setInvitationCtrl(InvitationFXMLController ctrl) {
         invitationCtrl = ctrl;
     }
 
-//    public static void setMultigameCtrl(MultigameFXMLController ctrl) {
-//        multigameCtrl = ctrl;
-//    }
   public static void setMultigameCtrl(MainBoaredController ctrl) {
         multigameCtrl = ctrl;
     }
@@ -470,11 +468,7 @@ public class ClientHandler {
                     Invitectrl.updateTable(name, score, status);
                 });
                 break;
-//            case "PlayMode":
-//                Platform.runLater(() -> {
-//                    Playmodectrl.updateTable(name, score, status);
-//                });
-//                break;
+
 
             default:
                 break;
@@ -751,19 +745,7 @@ public class ClientHandler {
         }
     }
 
-    /**
-     * ************ Send Chat request and Response *************
-     */
-    public static void sendChatRequest(String msg) {
-        JSONObject sendChat = new JSONObject();
-        sendChat.put("type", "sendChat");
-        sendChat.put("msg", msg);
-        ClientHandler.sendRequest(sendChat);
-    }
 
-//    private static void sendChatResponse(JSONObject response) {
-//        multigameCtrl.displayOpponentMsg(response.get("msg").toString());
-//    }
     /**
      * ************ Load Game request and Response *************
      */
@@ -798,12 +780,10 @@ public class ClientHandler {
             isLoaded = true;
             if (player.getInvited()) {
                 Platform.runLater(() -> {
-                 //   changeScene("Multigame");
                  changeScene("mainBoared");
                 });
             } else {
-                Platform.runLater(() -> {
-                   // changeScene("Multigame");
+                Platform.runLater(() -> { 
                     changeScene("mainBoared");
                 });
             }

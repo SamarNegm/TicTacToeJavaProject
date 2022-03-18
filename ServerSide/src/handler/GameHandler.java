@@ -16,7 +16,10 @@ import server.DBOperations;
 import database.gameinfo.Game;
 import org.json.simple.JSONObject;
 
-
+/**
+ *
+ * @author Samar
+ */
 public class GameHandler extends Thread {
 
     private static final int WIN_POINTS = 20;

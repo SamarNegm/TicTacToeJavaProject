@@ -37,7 +37,7 @@ import server.utils.ServerUtils;
 /**
  * FXML Controller class
  *
- * @author MrMr
+ * @author Samar
  */
 public class ServerGuiController implements Initializable {
 
@@ -58,7 +58,6 @@ public class ServerGuiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         this.controlFlag = false;
         this.visableFlag = false;
         this.serverInGUI = new Server();

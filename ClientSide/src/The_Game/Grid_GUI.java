@@ -23,7 +23,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
+/**
+ *
+ * @author Mohamed shehata
+ */
 public class Grid_GUI {
 
     Stage primaryStage;
@@ -38,12 +41,10 @@ public class Grid_GUI {
         top.setId("top");
         HBox winner_result = new HBox();
         Button newGame = new Button("New Game");
-        //newGame.setFont(new Font(20));
         newGame.setMinWidth(200);
         newGame.setId("newGame");
 
         Button quit = new Button("Quit");
-        //quit.setFont(new Font(20));
         quit.setMinWidth(200);
         quit.setId("quit");
         GridPane grid = new GridPane();
@@ -86,14 +87,6 @@ public class Grid_GUI {
                                 winner.setText("Winner");
                                 result.setId(win);
                                 result.setText(win);
-//                                            try {
-////                                                Model.add_point();
-//                                                //////FUNCTION to add one point
-//                                            } catch (SQLException ex) {
-//                                                Logger.getLogger(Grid_GUI.class.getName()).log(Level.SEVERE, null, ex);
-//                                            } catch (ClassNotFoundException ex) {
-//                                                Logger.getLogger(Grid_GUI.class.getName()).log(Level.SEVERE, null, ex);
-//                                            }
                             } else if (xCount == 5) {
                                 winner.setId("winner");
                                 winner.setText("DRAW");
@@ -148,17 +141,11 @@ public class Grid_GUI {
         result.setPrefHeight(70);
         result.setAlignment(Pos.CENTER);
         VBox.setMargin(result, new Insets(0, 0, 0, 280));
-        ///////////////////////////////
         winner_result.getChildren().addAll(winner, result);
         winner_result.setAlignment(Pos.CENTER);
-        //HBox.setMargin(winner_result,new Insets(0, 0, 0, 240));
         root.getChildren().addAll(top, grid, winner_result);
-        //primaryStage.setTitle("Tic Tac Toe");
         scene = new Scene(root, 640, 820);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-        // primaryStage.setScene(scene);
-        // primaryStage.show();
-
     }
 
     public Scene get_scene() {

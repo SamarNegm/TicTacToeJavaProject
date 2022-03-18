@@ -9,7 +9,10 @@ import database.playerinfo.PlayerModel;
 import java.sql.SQLException;
 import java.util.Vector;
 
-
+/**
+ *
+ * @author Samar
+ */
 public interface GameModel {
 
     static final DatabaseDriver db = new DatabaseDriver();
@@ -80,7 +83,6 @@ public interface GameModel {
             } else {
                 return false;
             }
-            //db.endStatConnection();
         } catch (SQLException ex) {
             return false;
         }
@@ -416,7 +418,6 @@ public interface GameModel {
 
             db.setResultSet(db.getStatement().executeQuery(db.getQuerystr()));
 
-            //boolean checkFirst = TestDB2.this.rs.first() ;
             if (db.getResultSet().next() == false) {
                 db.endResultSet();
                 db.endStatConnection();

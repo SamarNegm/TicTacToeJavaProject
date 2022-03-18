@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clientside;
 
 import clientHandler.ClientHandler;
@@ -15,7 +19,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.SubScene;
 import javafx.scene.layout.AnchorPane;
 
-
+/**
+ *
+ * @author Marwa
+ */
 public class GameFXMLController implements Initializable {
     
     @FXML
@@ -333,8 +340,7 @@ public class GameFXMLController implements Initializable {
     }
     @FXML
     private void exitBtnHandler(ActionEvent event){
-        //TODO
-        //ClientHandler.getPlayer().updateStatus("offline"); needed or not???
+      
         Platform.exit();
     }
     @FXML
@@ -345,7 +351,7 @@ public class GameFXMLController implements Initializable {
     @FXML
     private void quitBtnHandler(ActionEvent event){
         ClientHandler.getPlayer().updateStatus("online");
-        ClientHandler.changeScene("Start");//should be the scene for starting a game
+        ClientHandler.changeScene("Start");
     }
     
     @FXML

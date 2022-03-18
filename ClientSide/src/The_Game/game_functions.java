@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 
 /**
  *
- * @author Mohamed Hamdy
+ * @author Samar
  */
 public class game_functions {
     
@@ -43,7 +43,7 @@ public class game_functions {
     		for(b = 0; b < 3; b++)
     			if(btn[a][b].getText().equals("O"))
     				oCount++;
-   	if(oCount < 4 ) //&& lastWin == 'X') || (oCount < 5 && lastWin == 'O')
+   	if(oCount < 4 ) 
     	{
     		for(a = 0; a < 3; a++)
 	    	{
@@ -231,8 +231,5 @@ public class game_functions {
 
        }
     
-//    public void set_difficulty(int _diff){
-//        difficulty = _diff ; 
-//    }
     }
 }

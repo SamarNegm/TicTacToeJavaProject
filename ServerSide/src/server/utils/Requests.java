@@ -4,7 +4,10 @@
  */
 package server.utils;
 
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public abstract class Requests {
     
     //Authentication related

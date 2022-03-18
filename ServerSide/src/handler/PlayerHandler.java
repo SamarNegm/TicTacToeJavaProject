@@ -27,7 +27,10 @@ import org.json.simple.parser.ParseException;
 
 
 
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public class PlayerHandler extends Thread{
  
     public Socket playerSocket;

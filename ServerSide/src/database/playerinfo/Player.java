@@ -13,7 +13,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+/**
+ *
+ * @author MohamedShehata
+ */
 public class Player {
     
     public  static  enum statusType {offline,online,busy,none} 

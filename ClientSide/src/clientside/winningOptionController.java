@@ -16,7 +16,7 @@ import clientHandler.ClientHandler;
 /**
  * FXML Controller class
  *
- * @author MohamedShahata
+ * @author Samar
  */
 public class winningOptionController implements Initializable {
 
@@ -30,12 +30,11 @@ public class winningOptionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
 
     @FXML
     private void tryagainHandler(MouseEvent event) {
-        ClientHandler.changeScene("mainBoardWithComputerFXML");
+        ClientHandler.changeScene("mainBoardWithComputer");
         
     }
     @FXML

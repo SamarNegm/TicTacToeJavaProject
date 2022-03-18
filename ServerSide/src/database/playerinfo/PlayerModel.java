@@ -8,7 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Vector;
-
+/**
+ *
+ * @author MohamedShehata
+ */
 public interface PlayerModel {
 
     static final DatabaseDriver db = new DatabaseDriver();
@@ -84,7 +87,6 @@ public interface PlayerModel {
             } else {
                 return false;
             }
-            //db.endStatConnection();
         } catch (SQLException ex) {
             return false;
         }
@@ -251,7 +253,6 @@ public interface PlayerModel {
             } else {
                 return false;
             }
-            //db.endStatConnection();
         } catch (SQLException ex) {
 
             return false;
@@ -345,7 +346,6 @@ public interface PlayerModel {
             db.setQuerystr("select score from players where username= '" + _username + "'");
             db.setResultSet(db.getStatement().executeQuery(db.getQuerystr()));
 
-            //boolean checkFirst = TestDB2.this.rs.first() ;
             if (db.getResultSet().next() == false) {
                 db.endResultSet();
                 db.endStatConnection();
@@ -399,7 +399,7 @@ public interface PlayerModel {
             if (db.getResultSet().next() == false) {
                 db.endResultSet();
                 db.endStatConnection();
-                //System.err.println("false select");
+               
                 return null;
             } else {
                 String tmpStatus = db.getResultSet().getString("status");
