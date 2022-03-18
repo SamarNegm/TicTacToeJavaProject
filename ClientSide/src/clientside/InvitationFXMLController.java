@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clientside;
 
 import clientHandler.ClientHandler;
@@ -11,7 +15,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-
+/**
+ *
+ * @author Marwa
+ */
 public class InvitationFXMLController implements Initializable {
 
     @FXML
@@ -32,13 +39,10 @@ public class InvitationFXMLController implements Initializable {
         ClientHandler.invitationResponse("true");
         ClientHandler.getPlayer().setInvited(true);
         waitingSubscene.setVisible(true);
-//        ClientHandler.getPlayer().updateStatus("ingame");
-//        ClientHandler.changeScene("Multigame");
     }
     
     @FXML
     private void startGameBtnHandler(ActionEvent event){
-       // ClientHandler.changeScene("Multigame");
        ClientHandler.changeScene("mainBoared");
     }
     
@@ -57,7 +61,6 @@ public class InvitationFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         ClientHandler.setInvitationCtrl(this);
         waitingSubscene.setVisible(false);
         startGameBtn.setDisable(true);

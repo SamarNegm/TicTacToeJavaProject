@@ -14,7 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+/**
+ *
+ * @author Marwa
+ */
 public class ServerSide extends Application {
 
     public static ServerGuiController rootOrigin;
@@ -34,12 +37,8 @@ public class ServerSide extends Application {
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0), (ActionEvent actionEvent) -> {
             if (DBStatusFlag) {
-//                rootOrigin.clientChartHandler();
-//                rootOrigin.logViewHandler();
-         //       rootOrigin.tableViewHandler();
             }
 
-//            rootOrigin.dbViewHandler();
         }), new KeyFrame(Duration.seconds(refreshRate)));
 
         timeline.setCycleCount(Animation.INDEFINITE);

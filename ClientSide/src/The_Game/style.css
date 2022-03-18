@@ -77,9 +77,7 @@
 #label
 {
     -fx-text-fill: darkred;
-/*    -fx-background-color: #306169;*/
     -fx-font-weight: bold;
-/*    -fx-border-color: #204146;*/
     -fx-font-size:30;
     
 }

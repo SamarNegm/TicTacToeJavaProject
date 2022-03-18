@@ -6,7 +6,10 @@ package database.gameinfo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import database.playerinfo.PlayerModel;
-
+/**
+ *
+ * @author Samar
+ */
 public class Game {
 
     // Assigning a value to each enum

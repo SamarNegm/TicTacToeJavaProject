@@ -27,7 +27,7 @@ import javafx.scene.text.Text;
 /**
  * FXML Controller class
  *
- * @author MrMr
+ * @author Samar
  */
 public class MainBoaredController implements Initializable {
 
@@ -175,7 +175,6 @@ public class MainBoaredController implements Initializable {
             setSceneVisibility(true);
 
         }
-        //game.printBoard();
     }
     
     @FXML
@@ -213,7 +212,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell4Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok4");
         if(play && (cell4.getImage()==null)){
             setPlayerSympol(player1Value, cell4);
             game.setCell4(player1Value);
@@ -225,7 +223,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell5Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok5");
         if(play && (cell5.getImage()==null)){
             setPlayerSympol(player1Value, cell5);
             game.setCell5(player1Value);
@@ -237,7 +234,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell6Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok6");
         if(play && (cell6.getImage()==null)){
             setPlayerSympol(player1Value, cell6);
             game.setCell6(player1Value);
@@ -249,7 +245,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell7Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok7");
         if(play && (cell7.getImage()==null)){
             setPlayerSympol(player1Value, cell7);
             game.setCell7(player1Value);
@@ -261,7 +256,6 @@ public class MainBoaredController implements Initializable {
     
     @FXML
     private void cell8Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok8");
         if(play && (cell8.getImage()==null)){
             setPlayerSympol(player1Value, cell8);
             game.setCell8(player1Value);
@@ -273,7 +267,6 @@ public class MainBoaredController implements Initializable {
     }
        @FXML 
     private void cell9Handler(MouseEvent event){
-          System.out.println("hiiiiiiiiiiiii11111111 ok9");
         if(play && (cell9.getImage()==null)){
             setPlayerSympol(player1Value, cell9);
             game.setCell9(player1Value);
@@ -445,7 +438,6 @@ public class MainBoaredController implements Initializable {
         }
 
         game.setBoard(ClientHandler.getBoard());
-        //game.printBoard();
     }
     
     private void setLoadedBoard(){
@@ -522,11 +514,9 @@ public class MainBoaredController implements Initializable {
             nextMove = "O";
         }
         ClientHandler.saveGameRequest(nextMove);
-       // ClientHandler.changeScene("start");
     }
       @FXML 
         private void exitHandler(ActionEvent event) {
-//        ClientHandler.getPlayer().updateStatus("online");
         ClientHandler.setReplay(false);
         ClientHandler.changeScene("Start");
     }
@@ -571,7 +561,6 @@ public class MainBoaredController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
                clearCells();
         setSceneVisibility(false);
         ClientHandler.setMultigameCtrl(this);
@@ -579,7 +568,6 @@ public class MainBoaredController implements Initializable {
         homeBtn.setDisable(true);
         waitingSubscene.setVisible(false);
         okBtn.setDisable(true);
-        // chatBox.appendText(String.format("\n"));
         
         game = new Game();
         

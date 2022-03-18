@@ -11,7 +11,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public abstract class ServerUtils {
 
     public static final int PORT_NUMBER = 7771;

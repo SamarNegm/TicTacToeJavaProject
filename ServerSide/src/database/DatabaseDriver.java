@@ -10,7 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public class DatabaseDriver {
 
     private Connection connection;
@@ -20,7 +23,6 @@ public class DatabaseDriver {
     private ResultSet resultSet; // used for store data from database
 
     public DatabaseDriver() {
-        //startConnection();
     }
 
     public void setConnection(Connection connection) {
@@ -88,7 +90,6 @@ public class DatabaseDriver {
 
     public void endStatConnection() {
         try {
-            //resultSet.close();
             statement.close();
             connection.close();
         } catch (SQLException ex) {
@@ -97,7 +98,6 @@ public class DatabaseDriver {
 
     public void endPStatConnection() {
         try {
-            //resultSet.close();
             preparedStatement.close();
             connection.close();
         } catch (SQLException ex) {

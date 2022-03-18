@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clientside;
 
 import clientHandler.ClientHandler;
@@ -16,7 +20,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-
+/**
+ *
+ * @author Marwa
+ */
 public class InviteFXMLController implements Initializable {
 
     @FXML
@@ -78,7 +85,6 @@ public class InviteFXMLController implements Initializable {
     @FXML
     private void okBtnHandler(ActionEvent event){
         if(ClientHandler.getGameAccepted()){
-          //  ClientHandler.changeScene("Multigame");
            ClientHandler.changeScene("mainBoared");
         }
         else{

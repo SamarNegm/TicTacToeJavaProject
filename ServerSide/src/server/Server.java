@@ -10,7 +10,10 @@ import handler.*;
 import java.io.IOException;
 
 
-
+/**
+ *
+ * @author MohamedShehata
+ */
 public class Server {
 
     private ServerSocket serverSocket;

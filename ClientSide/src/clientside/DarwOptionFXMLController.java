@@ -14,9 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
 /**
- * FXML Controller class
  *
- * @author MrMr
+ * @author Samar
  */
 public class DarwOptionFXMLController implements Initializable {
 
@@ -30,11 +29,10 @@ public class DarwOptionFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
      @FXML
     private void tryagainHandler(MouseEvent event) {
-        ClientHandler.changeScene("mainBoardWithComputerFXML");
+        ClientHandler.changeScene("mainBoardWithComputer");
         
     }
     @FXML

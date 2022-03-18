@@ -16,7 +16,7 @@ import clientHandler.ClientHandler;
 /**
  * FXML Controller class
  *
- * @author MohamedShahata
+ * @author Samar
  */
 public class loseOptionFXMLController implements Initializable {
 
@@ -34,7 +34,7 @@ public class loseOptionFXMLController implements Initializable {
     }    
      @FXML
     private void tryagainHandler(MouseEvent event) {
-        ClientHandler.changeScene("mainBoardWithComputerFXML");
+        ClientHandler.changeScene("mainBoardWithComputer");
         
     }
     @FXML

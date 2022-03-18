@@ -1,8 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package clientHandler;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ *
+ * @author MohamedShehata
+ */
 public class Game {
     private char[][] board;
     private int nextMove;
@@ -79,7 +88,7 @@ public class Game {
     // Setters for cells
     public void setCell1(char value) {
         board[0][0] = value;
-        // Increasing the move count untill it hits all 9 cells in each set cell
+        // Increasing the move count until it hits all 9 cells in each set cell
         movesCount++;
     }
 

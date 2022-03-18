@@ -9,7 +9,10 @@ import database.playerinfo.*;
 import java.util.Vector;
 import database.playerinfo.Player.orderType;
 
-
+/**
+ *
+ * @author Abdelfattah
+ */
 public abstract class DBMethods {
 
     // public static methods

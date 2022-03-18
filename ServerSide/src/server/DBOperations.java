@@ -9,9 +9,10 @@ import java.util.Vector;
 import database.DBMethods;
 import database.playerinfo.Player;
 
-
-
-
+/**
+ *
+ * @author MohamedShehata
+ */
 public abstract class DBOperations {
     
     //indicates if the db is updated from the last check
