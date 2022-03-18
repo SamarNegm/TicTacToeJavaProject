@@ -12,7 +12,14 @@ While the game of tic-tac-toe is really old, dating back to ancient Egyptians at
 ---
 ## Overview
 
-![single player demo](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/tic-tac-toe.mkv)
+![single player demo](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/login.png)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/welcime.png)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/start.png)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/new%20game.png)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/difficulty.png)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/play%20with%20computer.png)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/invite.PNG)
+![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/playing.PNG)
 
 This project is a simple Tic-Tac-Toe online game developed as a final project for the java course.
 The game is developed using java and javafx utilizing socket programming, multi-threading
@@ -69,24 +76,23 @@ and JSON data transmission to allow for a multiplayer online game with other fea
 
 ### Server-side Interface
 
-![server gui](https://github.com/SamarNegm/TicTacToeJavaProject/edit/master/README.md/demos/server.png)
+![server gui](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/server.png)
 
 You can start and stop the server from the GUI, as well as view the server logs, the database and a live players list.
 
 ### Multiplayer Mode
 
 ![multiplayer gif](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/new%20game.png)
+![]![](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/playing.PNG)
 
-Two players can challenge each other and play together online, and they can also chat with each other during the game.
 
 ### Saving and Loading
 
-![save gif](https://github.com/ahmedmumdouh/TicTacToe-Java-Project/blob/master/demos/save_load.gif)
+![save gif](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/saved.PNG)
 
 The players can save the game to continue playing at another time.
 
-For the full demo video refer to the following link: [Demo Video](https://drive.google.com/file/d/1xS0jdz3L2U-QqoeBnXbGfMWgWpbPNS03/view?usp=sharing)
-
+For the full demo video refer to the following link: [Demo Video](https://github.com/SamarNegm/TicTacToeJavaProject/blob/master/Demo/tic-tac-toe.mkv)
 ---
 ## 💻 How To Use
 
