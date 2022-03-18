@@ -1,2 +1,1 @@
-[ Fri Mar 18 15:27:57 EET 2022 ] :  Server is Running
-[ Fri Mar 18 15:29:21 EET 2022 ] :  [AuthenHandler class]: A Client has just signed in
+[ Fri Mar 18 16:39:37 EET 2022 ] :  Server is Stopped
